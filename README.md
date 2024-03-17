@@ -16,6 +16,8 @@ i swear guys its still pushing the commits its just taking forever because githu
 
 i gotta agree but its due to how much files is there
 
+if there's any errors don't hesistate to tell in the issues tab
+
 - [GameMaker 2022, NOT LTS](https://gms.yoyogames.com/GameMaker-Installer-2022.6.1.26.exe) using Runtime 2022.6.1.26 (future versions would probably break it .)
 
 everyone, lets all welcome to the madness that is..... THE PIZZA TOWER RACE TRACK!

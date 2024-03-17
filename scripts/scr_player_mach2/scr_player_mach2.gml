@@ -63,7 +63,7 @@ function scr_player_mach2() {
 	    {
 	        movespeed = 12
 	        machhitAnim = 0
-	        state = 91
+	        state = states.mach3
 	        flash = 1
 	        if (sprite_index != spr_rollgetup)
 	            sprite_index = spr_mach4
@@ -78,18 +78,18 @@ function scr_player_mach2() {
 	    with (instance_create(x, y, obj_jumpdust))
 	        image_xscale = other.xscale
 	    flash = 0
-	    state = 37
+	    state = states.machroll
 	    vsp = 10
 	}
 	if (((!grounded) && (place_meeting((x + hsp), y, obj_solid) && ((!place_meeting((x + hsp), y, obj_destructibles)) && (!place_meeting((x + sign(hsp)), y, obj_slope))))) || (grounded && (place_meeting((x + hsp), (y - 64), obj_solid) && ((!place_meeting((x + hsp), y, obj_destructibles)) && ((!place_meeting((x + hsp), y, obj_metalblock)) && place_meeting(x, (y + 1), obj_slope))))))
 	{
 	    wallspeed = movespeed
-	    state = 17
+	    state = states.climbwall
 	}
 	if (grounded && ((!scr_slope()) && (place_meeting((x + hsp), y, obj_solid) && ((!place_meeting((x + hsp), y, obj_destructibles)) && (!place_meeting((x + sign(hsp)), y, obj_slope))))))
 	{
 	    movespeed = 0
-	    state = 0
+	    state = states.normal
 	}
 	if ((!instance_exists(dashcloudid)) && grounded)
 	{
@@ -109,7 +109,7 @@ function scr_player_mach2() {
 	    sprite_index = spr_walljumpend
 	if (key_attack && ((!place_meeting((x + xscale), y, obj_solid)) && ((character == "S") && grounded)))
 	{
-	    state = 22
+	    state = states.handstandjump
 	    movespeed = 0
 	}
 	if key_taunt2
@@ -119,7 +119,7 @@ function scr_player_mach2() {
 	    tauntstoredmovespeed = movespeed
 	    tauntstoredsprite = sprite_index
 	    tauntstoredstate = state
-	    state = 51
+	    state = states.backbreaker
 	    image_index = random_range(0, (sprite_get_number(spr_taunt) - 1))
 	    sprite_index = spr_taunt
 	    instance_create(x, y, obj_taunteffect)
@@ -127,7 +127,7 @@ function scr_player_mach2() {
 	if (((!key_attack) && ((move != xscale) && grounded)) || ((character == "S") && ((move == 0) && grounded)))
 	{
 	    image_index = 0
-	    state = 71
+	    state = states.machslide
 	    scr_soundeffect(sfx_break)
 	    sprite_index = spr_machslidestart
 	}
@@ -135,15 +135,15 @@ function scr_player_mach2() {
 	{
 	    scr_soundeffect(sfx_machslideboost)
 	    image_index = 0
-	    state = 71
+	    state = states.machslide
 	    sprite_index = spr_machslideboost
 	}
 	if (((object_index == obj_player1) && (place_meeting(x, y, obj_player2) && ((obj_player1.hurted == 0) && (obj_player2.hurted == 0)))) || ((object_index == obj_player2) && (place_meeting(x, y, obj_player1) && ((obj_player2.hurted == 0) && (obj_player1.hurted == 0)))))
 	{
 	    if (object_index == obj_player1)
 	    {
-	        obj_player1.state = 91
-	        obj_player2.state = 109
+	        obj_player1.state = states.mach3
+	        obj_player2.state = enemy_states.grabbed
 	        obj_player2.xscale = xscale
 	        if (obj_player1.spotlight == 0)
 	        {
@@ -157,8 +157,8 @@ function scr_player_mach2() {
 	    }
 	    if (object_index == obj_player2)
 	    {
-	        obj_player2.state = 91
-	        obj_player1.state = 109
+	        obj_player2.state = states.mach3
+	        obj_player1.state = enemy_states.grabbed
 	        obj_player1.xscale = xscale
 	        if (obj_player1.spotlight == 1)
 	        {
@@ -178,7 +178,7 @@ function scr_player_mach2() {
 	    obj_player2.fightball = 1
 	}
 	if ((move == xscale) && ((!key_attack) && grounded))
-	    state = 0
+	    state = states.normal
 	if (sprite_index == spr_rollgetup)
 	    image_speed = 0.4
 	else

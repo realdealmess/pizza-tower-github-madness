@@ -4,7 +4,7 @@ function scr_player_crouchjump() {
 	if ((fallinganimation >= 40) && (fallinganimation < 80))
 	{
 	    sprite_index = spr_facestomp
-	    state = 58
+	    state = states.jump
 	}
 	mask_index = spr_crouchmask
 	hsp = (move * movespeed)
@@ -21,7 +21,7 @@ function scr_player_crouchjump() {
 	}
 	if (grounded && key_down)
 	{
-	    state = 66
+	    state = states.crouch
 	    jumpAnim = 1
 	    crouchAnim = 1
 	    image_index = 0
@@ -47,7 +47,7 @@ function scr_player_crouchjump() {
 	if (grounded && ((!key_down) && (!scr_solid(x, (y - 16)))))
 	{
 	    movespeed = 0
-	    state = 0
+	    state = states.normal
 	    jumpAnim = 1
 	    landAnim = 1
 	    crouchAnim = 1

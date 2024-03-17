@@ -7,11 +7,11 @@ if (((obj_player.x > (x - 100)) && (obj_player.x < (x + 100))) && (global.panic 
         image_speed = 0.35
     }
 }
-if (place_meeting(x, y, obj_player) && ((activated == 1) && ((hitwall == 0) && (obj_player.state != 31))))
+if (place_meeting(x, y, obj_player) && ((activated == 1) && ((hitwall == 0) && (obj_player.state != states.stunned))))
 {
     with (obj_player)
     {
-        state = 31
+        state = states.stunned
         sprite_index = spr_player_squished
         image_index = 0
     }

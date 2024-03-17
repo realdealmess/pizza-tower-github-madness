@@ -1,17 +1,17 @@
 function scr_collide_destructibles() {
 	with (obj_player1)
 	{
-	    if ((state == 70) || ((state == 91) || ((state == 37) || ((state == 18) || ((state == 2) || (state == 9))))))
+	    if ((state == states.mach2) || ((state == states.mach3) || ((state == states.machroll) || ((state == states.knightpepslopes) || ((state == states.tumble) || (state == 9))))))
 	    {
 	        if place_meeting((x + hsp), y, obj_destructibles)
 	        {
 	            with (instance_place((x + hsp), y, obj_destructibles))
 	                instance_destroy()
-	            if (state == 70)
+	            if (state == states.mach2)
 	                machpunchAnim = 1
 	        }
 	    }
-	    if ((state == 73) && (thrown == 1))
+	    if ((state == states.hurt) && (thrown == 1))
 	    {
 	        if place_meeting((x - hsp), y, obj_destructibles)
 	        {
@@ -19,7 +19,7 @@ function scr_collide_destructibles() {
 	                instance_destroy()
 	        }
 	    }
-	    if (((state == 24) || ((state == 43) || (state == 9))) && (vsp > 0))
+	    if (((state == states.knightpep) || ((state == states.superslam) || (state == 9))) && (vsp > 0))
 	    {
 	        if place_meeting(x, (y + 1), obj_destructibles)
 	        {
@@ -36,7 +36,7 @@ function scr_collide_destructibles() {
 	                image_speed = 0.35
 	        }
 	    }
-	    if ((vsp <= 0.5) && ((state == 58) || ((state == 17) || ((state == 6) || ((state == 63) || ((state == 70) || (state == 91)))))))
+	    if ((vsp <= 0.5) && ((state == states.jump) || ((state == states.climbwall) || ((state == states.fireass) || ((state == states.Sjump) || ((state == states.mach2) || (state == states.mach3)))))))
 	    {
 	        if place_meeting(x, (y - 1), obj_destructibles)
 	        {
@@ -45,13 +45,13 @@ function scr_collide_destructibles() {
 	                instance_destroy()
 	                with (other.id)
 	                {
-	                    if ((state != 63) && (state != 17))
+	                    if ((state != states.Sjump) && (state != states.climbwall))
 	                        vsp = 0
 	                }
 	            }
 	        }
 	    }
-	    if ((vsp >= 0) && ((state == 74) || (state == 77)))
+	    if ((vsp >= 0) && ((state == states.freefall) || (state == states.freefall_land)))
 	    {
 	        if place_meeting(x, ((y + vsp) + 2), obj_destructibles)
 	        {
@@ -65,7 +65,7 @@ function scr_collide_destructibles() {
 	                            sprite_index = spr_bodyslamland
 	                        else
 	                            sprite_index = spr_shotgunjump2
-	                        state = 77
+	                        state = states.freefall_land
 	                        image_index = 0
 	                    }
 	                }
@@ -73,7 +73,7 @@ function scr_collide_destructibles() {
 	            }
 	        }
 	    }
-	    if ((state == 74) || (state == 77))
+	    if ((state == states.freefall) || (state == states.freefall_land))
 	    {
 	        if (place_meeting(x, (y + 1), obj_metalblock) && (freefallsmash > 10))
 	        {
@@ -81,7 +81,7 @@ function scr_collide_destructibles() {
 	                instance_destroy()
 	        }
 	    }
-	    if (state == 22)
+	    if (state == states.handstandjump)
 	    {
 	        with (obj_destructibles)
 	        {
@@ -95,14 +95,14 @@ function scr_collide_destructibles() {
 	                        {
 	                            sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_punch)
 	                            image_index = 0
-	                            state = 57
+	                            state = states.tackle
 	                            movespeed = 3
 	                            vsp = -3
 	                            instance_destroy(other.id)
 	                        }
 	                        else
 	                        {
-	                            state = 38
+	                            state = states.shotgun
 	                            image_index = 0
 	                            sprite_index = spr_shotgunshoot
 	                            if (character == "P")
@@ -132,7 +132,7 @@ function scr_collide_destructibles() {
 	}
 	with (obj_player2)
 	{
-	    if ((state == 73) && (thrown == 1))
+	    if ((state == states.hurt) && (thrown == 1))
 	    {
 	        if place_meeting((x - hsp), y, obj_destructibles)
 	        {
@@ -140,17 +140,17 @@ function scr_collide_destructibles() {
 	                instance_destroy()
 	        }
 	    }
-	    if ((state == 70) || ((state == 91) || ((state == 37) || ((state == 18) || ((state == 2) || (state == 9))))))
+	    if ((state == states.mach2) || ((state == states.mach3) || ((state == states.machroll) || ((state == states.knightpepslopes) || ((state == states.tumble) || (state == 9))))))
 	    {
 	        if place_meeting((x + hsp), y, obj_destructibles)
 	        {
 	            with (instance_place((x + hsp), y, obj_destructibles))
 	                instance_destroy()
-	            if (state == 70)
+	            if (state == states.mach2)
 	                machpunchAnim = 1
 	        }
 	    }
-	    if (((state == 24) || ((state == 43) || (state == 9))) && (vsp > 0))
+	    if (((state == states.knightpep) || ((state == states.superslam) || (state == 9))) && (vsp > 0))
 	    {
 	        if place_meeting(x, (y + 1), obj_destructibles)
 	        {
@@ -167,7 +167,7 @@ function scr_collide_destructibles() {
 	                image_speed = 0.35
 	        }
 	    }
-	    if ((vsp <= 0.5) && ((state == 58) || ((state == 17) || ((state == 6) || ((state == 63) || ((state == 70) || (state == 91)))))))
+	    if ((vsp <= 0.5) && ((state == states.jump) || ((state == states.climbwall) || ((state == 6) || ((state == states.Sjump) || ((state == states.mach2) || (state == states.mach3)))))))
 	    {
 	        if place_meeting(x, (y - 1), obj_destructibles)
 	        {
@@ -176,13 +176,13 @@ function scr_collide_destructibles() {
 	                instance_destroy()
 	                with (other.id)
 	                {
-	                    if ((state != 63) && (state != 17))
+	                    if ((state != states.Sjump) && (state != states.climbwall))
 	                        vsp = 0
 	                }
 	            }
 	        }
 	    }
-	    if ((vsp >= 0) && ((state == 74) || (state == 77)))
+	    if ((vsp >= 0) && ((state == states.freefall) || (state == states.freefall_land)))
 	    {
 	        if place_meeting(x, ((y + vsp) + 2), obj_destructibles)
 	        {
@@ -196,7 +196,7 @@ function scr_collide_destructibles() {
 	                            sprite_index = spr_bodyslamland
 	                        else
 	                            sprite_index = spr_shotgunjump2
-	                        state = 77
+	                        state = states.freefall_land
 	                        image_index = 0
 	                    }
 	                }
@@ -204,7 +204,7 @@ function scr_collide_destructibles() {
 	            }
 	        }
 	    }
-	    if ((state == 74) || (state == 77))
+	    if ((state == states.freefall) || (state == states.freefall_land))
 	    {
 	        if (place_meeting(x, (y + 1), obj_metalblock) && (freefallsmash > 10))
 	        {
@@ -212,7 +212,7 @@ function scr_collide_destructibles() {
 	                instance_destroy()
 	        }
 	    }
-	    if (state == 22)
+	    if (state == states.handstandjump)
 	    {
 	        with (obj_destructibles)
 	        {
@@ -226,14 +226,14 @@ function scr_collide_destructibles() {
 	                        {
 	                            sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_punch)
 	                            image_index = 0
-	                            state = 57
+	                            state = states.tackle
 	                            movespeed = 3
 	                            vsp = -3
 	                            instance_destroy(other.id)
 	                        }
 	                        else
 	                        {
-	                            state = 38
+	                            state = states.shotgun
 	                            image_index = 0
 	                            sprite_index = spr_shotgunshoot
 	                            if (character == "P")

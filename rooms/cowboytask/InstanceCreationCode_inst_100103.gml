@@ -1,1 +1,1 @@
-targetRoom = 6
+targetRoom = hub_room1

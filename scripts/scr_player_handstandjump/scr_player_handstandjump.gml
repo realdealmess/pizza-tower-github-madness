@@ -24,17 +24,17 @@ function scr_player_handstandjump() {
 	    jumpstop = 1
 	}
 	if ((move != xscale) && (move != 0))
-	    state = 0
+	    state = states.normal
 	if (((floor(image_index) == (image_number - 1)) || ((sprite_index == spr_suplexdashjump) || (sprite_index == spr_suplexdashjumpstart))) && (grounded && ((!key_attack) && (vsp > 0))))
 	{
 	    image_speed = 0.35
-	    state = 0
+	    state = states.normal
 	    grav = 0.5
 	}
 	if (((floor(image_index) == (image_number - 1)) || ((sprite_index == spr_suplexdashjump) || (sprite_index == spr_suplexdashjumpstart))) && (grounded && key_attack))
 	{
 	    image_speed = 0.35
-	    state = 70
+	    state = states.mach2
 	    grav = 0.5
 	}
 	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_suplexdashjumpstart))
@@ -44,7 +44,7 @@ function scr_player_handstandjump() {
 	    grav = 0.5
 	    sprite_index = spr_crouchslip
 	    machhitAnim = 0
-	    state = 68
+	    state = states.crouchslide
 	    movespeed = 15
 	}
 	if ((!grounded) && ((sprite_index == spr_suplexdash) || (sprite_index == spr_shotgunsuplexdash)))
@@ -70,7 +70,7 @@ function scr_player_handstandjump() {
 	    scr_soundeffect(sfx_bumpwall)
 	    grav = 0.5
 	    movespeed = 0
-	    state = 72
+	    state = states.bump
 	    hsp = -2.5
 	    vsp = -3
 	    mach2 = 0
@@ -84,7 +84,7 @@ function scr_player_handstandjump() {
 	    scr_soundeffect(sfx_bumpwall)
 	    grav = 0.5
 	    movespeed = 0
-	    state = 72
+	    state = states.bump
 	    hsp = 2.5
 	    vsp = -3
 	    mach2 = 0
@@ -115,10 +115,10 @@ function scr_player_handstandjump() {
 	            sprite_index = spr_snick_walk
 	    }
 	    else if (movespeed >= 12)
-	        state = 91
+	        state = states.mach3
 	    else
 	    {
-	        state = 0
+	        state = states.normal
 	        movespeed = 0
 	    }
 	    if ((!instance_exists(obj_dashcloud2)) && (grounded && (movespeed > 5)))

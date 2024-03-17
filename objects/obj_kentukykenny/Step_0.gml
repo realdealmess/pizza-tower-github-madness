@@ -1,42 +1,42 @@
 switch state
 {
-    case 94:
+    case enemy_states.idle:
         scr_enemy_idle()
         break
-    case 96:
+    case enemy_states.charge:
         scr_enemy_charge()
         break
-    case 98:
+    case enemy_states.turn:
         scr_enemy_turn()
         break
-    case 102:
+    case enemy_states.walk:
         scr_enemy_walk()
         break
-    case 104:
+    case enemy_states.land:
         scr_enemy_land()
         break
-    case 105:
+    case enemy_states.hit:
         scr_enemy_hit()
         break
-    case 106:
+    case enemy_states.stun:
         scr_enemy_stun()
         break
-    case 97:
+    case enemy_states.pizzagoblin_throw:
         scr_pizzagoblin_throw()
         break
-    case 109:
+    case enemy_states.grabbed:
         scr_enemy_grabbed()
         break
 }
 
 
-if ((state == 106) && ((stunned > 40) && (birdcreated == 0)))
+if ((state == enemy_states.stun) && ((stunned > 40) && (birdcreated == 0)))
 {
     birdcreated = 1
     with (instance_create(x, y, obj_enemybird))
         ID = other.id
 }
-if (state != 106)
+if (state != enemy_states.stun)
     birdcreated = 0
 idlespr = 283
 stunfallspr = 284
@@ -45,22 +45,22 @@ stunspr = 284
 grabbedspr = 284
 if ((flash == 1) && (alarm[2] <= 0))
     alarm[2] = (0.15 * room_speed)
-if (state != 109)
+if (state != enemy_states.grabbed)
     depth = 0
-if (state != 106)
+if (state != enemy_states.stun)
     thrown = 0
 if (bombreset > 0)
     bombreset--
-if ((x != obj_player.x) && ((state != 97) && ((bombreset == 0) && grounded)))
+if ((x != obj_player.x) && ((state != enemy_states.pizzagoblin_throw) && ((bombreset == 0) && grounded)))
 {
     if (((obj_player.x > (x - 400)) && (obj_player.x < (x + 400))) && ((y <= (obj_player.y + 20)) && (y >= (obj_player.y - 20))))
     {
-        if ((state == 102) || (state == 94))
+        if ((state == enemy_states.walk) || (state == enemy_states.idle))
         {
             sprite_index = spr_kentukykenny_throw
             image_index = 0
             image_xscale = (-sign((x - obj_player.x)))
-            state = 97
+            state = enemy_states.pizzagoblin_throw
         }
     }
 }

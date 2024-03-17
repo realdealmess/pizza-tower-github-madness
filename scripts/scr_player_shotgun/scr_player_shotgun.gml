@@ -37,12 +37,12 @@ function scr_player_shotgun() {
 	    if grounded
 	    {
 	        sprite_index = spr_shotgunidle
-	        state = 0
+	        state = states.normal
 	    }
 	    else
 	    {
 	        sprite_index = spr_shotgunfall
-	        state = 58
+	        state = states.jump
 	    }
 	}
 	if (((!key_slap) && ((character == "N") && (sprite_index != spr_shotgunpullout))) || ((sprite_index == spr_shotgunpullout) && (floor(image_index) == (image_number - 1))))
@@ -50,12 +50,12 @@ function scr_player_shotgun() {
 	    if grounded
 	    {
 	        sprite_index = spr_shotgunidle
-	        state = 0
+	        state = states.normal
 	    }
 	    else
 	    {
 	        sprite_index = spr_shotgunfall
-	        state = 58
+	        state = states.jump
 	    }
 	}
 	image_speed = 0.4

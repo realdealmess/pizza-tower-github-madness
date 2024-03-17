@@ -17,7 +17,7 @@ function scr_enemy_hit() {
 	if (grounded && (floor(vsp) > 0))
 	{
 	    instance_create(x, y, obj_landcloud)
-	    state = 106
+	    state = enemy_states.stun
 	    image_index = 0
 	}
 	image_speed = 0.35

@@ -41,12 +41,12 @@ function scr_player_cheesepep() {
 	if place_meeting((x + sign(hsp)), y, obj_railv)
 	{
 	    grav = 0
-	    state = 14
+	    state = states.cheesepepstick
 	}
 	if (place_meeting(x, (y - 1), obj_railh) && (vsp < 0))
 	{
 	    grav = 0
-	    state = 14
+	    state = states.cheesepepstick
 	}
 	if (scr_solid(x, (y - 1)) && (vsp < 0))
 	    vsp = grav

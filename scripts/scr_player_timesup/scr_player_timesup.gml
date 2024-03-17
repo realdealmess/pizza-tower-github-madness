@@ -7,7 +7,7 @@ function scr_player_timesup() {
 	alarm[5] = -1
 	if place_meeting(x, y, obj_timesup)
 	{
-	    state = 55
+	    state = states.gameover
 	    sprite_index = spr_deathend
 	    alarm[10] = 5
 	    vsp = -8

@@ -5,6 +5,6 @@ if (((distance_to_object(obj_player2) > 1000) || key_taunt2) && (obj_player1.spo
     hurted = 1
     x = obj_player2.x
     y = obj_player2.y
-    state = 0
+    state = states.normal
 }
 

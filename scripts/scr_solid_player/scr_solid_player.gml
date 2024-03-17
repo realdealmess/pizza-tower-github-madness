@@ -11,7 +11,7 @@ function scr_solid_player(argument0, argument1) {
 	}
 	if ((y > old_y) && (((bbox_bottom % 16) == 0) && ((!place_meeting(x, old_y, obj_platform)) && place_meeting(x, y, obj_platform))))
 	{
-	    if (state != 59)
+	    if (state != states.ladder)
 	    {
 	        x = old_x
 	        y = old_y
@@ -20,7 +20,7 @@ function scr_solid_player(argument0, argument1) {
 	}
 	if ((y > old_y) && (((bbox_bottom % 16) == 0) && ((!place_meeting(x, old_y, obj_grindrail)) && place_meeting(x, y, obj_grindrail))))
 	{
-	    if ((state == 70) || (state == 45))
+	    if ((state == states.mach2) || (state == states.grind))
 	    {
 	        x = old_x
 	        y = old_y

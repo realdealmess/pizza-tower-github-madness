@@ -7,7 +7,7 @@ if (refresh <= 0)
     {
         with (instance_create(x, (y - 35), content))
         {
-            state = 106
+            state = enemy_states.stun
             stunned = 50
             vsp = -5
             other.baddieid = id

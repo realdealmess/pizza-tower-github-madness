@@ -1,6 +1,6 @@
 image_xscale = playerid.xscale
 x = playerid.x
 y = playerid.y
-if ((playerid.state != 25) && (playerid.state != 3))
+if ((playerid.state != states.knightpepattack) && (playerid.state != states.finishingblow))
     instance_destroy()
 

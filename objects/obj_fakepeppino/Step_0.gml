@@ -2,13 +2,13 @@ if (global.panic == 1)
 {
     switch state
     {
-        case 94:
+        case enemy_states.idle:
             scr_fakepeppino_idle()
             break
-        case 102:
+        case enemy_states.walk:
             scr_fakepeppino_walk()
             break
-        case 105:
+        case enemy_states.hit:
             scr_fakepeppino_hit()
             break
         case 58:
@@ -31,7 +31,7 @@ if (appeartimer == 0)
 }
 if (obj_player.x > (x - 200) && obj_player.x < (x + 200) && sprite_index == spr_fakepeppino_walk && y == obj_player.y)
 {
-    state = 105
+    state = enemy_states.hit
     sprite_index = spr_fakepeppino_grabdash
     image_index = 0
     movespeed = 8

@@ -121,7 +121,7 @@ if (pause == 1)
                 scr_characterspr()
             }
             scr_playerreset()
-            obj_player.state = 7
+            obj_player.state = states.firemouth
             global.cowboyhat = 0
             obj_player1.targetDoor = "A"
 			global.coop = 0

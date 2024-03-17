@@ -1,6 +1,6 @@
 with (other.id)
 {
-    if (instance_exists(baddieID) && (baddieID.state != 109))
+    if (instance_exists(baddieID) && (baddieID.state != enemy_states.grabbed))
     {
         if (other.playerid == obj_player1)
             baddieID.grabbedby = 1

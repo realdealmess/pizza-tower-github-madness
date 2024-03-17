@@ -5,7 +5,7 @@ if (playerid.movespeed <= 7)
     instance_destroy()
 with (playerid)
 {
-    if (state != 70)
+    if (state != states.mach2)
         instance_destroy(other.id)
 }
 

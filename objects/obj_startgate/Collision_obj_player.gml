@@ -1,6 +1,6 @@
 with (obj_player1)
 {
-    if (key_up && (grounded && (((state == 0) || ((state == 69) || ((state == 70) || (state == 91)))) && ((!instance_exists(obj_noisesatellite)) && ((!instance_exists(obj_fadeout)) && ((state != 64) && ((state != 61) && (obj_player1.spotlight == 1))))))))
+    if (key_up && (grounded && (((state == states.normal) || ((state == states.mach1) || ((state == states.mach2) || (state == states.mach3)))) && ((!instance_exists(obj_noisesatellite)) && ((!instance_exists(obj_fadeout)) && ((state != states.victory) && ((state != states.comingoutdoor) && (obj_player1.spotlight == 1))))))))
     {
         audio_stop_all()
         backtohubstartx = x
@@ -9,7 +9,7 @@ with (obj_player1)
         mach2 = 0
         obj_camera.chargecamera = 0
         image_index = 0
-        state = 64
+        state = states.victory
         obj_player2.backtohubstartx = x
         obj_player2.backtohubstarty = y
         obj_player2.backtohubroom = room
@@ -21,14 +21,14 @@ with (obj_player1)
                 mach2 = 0
                 obj_camera.chargecamera = 0
                 image_index = 0
-                state = 64
+                state = states.victory
             }
         }
     }
 }
 with (obj_player2)
 {
-    if (key_up && (grounded && (((state == 0) || ((state == 69) || ((state == 70) || (state == 91)))) && ((!instance_exists(obj_noisesatellite)) && ((!instance_exists(obj_fadeout)) && ((state != 64) && ((state != 61) && (obj_player1.spotlight == 0))))))))
+    if (key_up && (grounded && (((state == states.normal) || ((state == states.mach1) || ((state == states.mach2) || (state == states.mach3)))) && ((!instance_exists(obj_noisesatellite)) && ((!instance_exists(obj_fadeout)) && ((state != states.victory) && ((state != states.comingoutdoor) && (obj_player1.spotlight == 0))))))))
     {
         audio_stop_all()
         backtohubstartx = x
@@ -37,7 +37,7 @@ with (obj_player2)
         mach2 = 0
         obj_camera.chargecamera = 0
         image_index = 0
-        state = 64
+        state = states.victory
         obj_player1.backtohubstartx = x
         obj_player1.backtohubstarty = y
         obj_player1.backtohubroom = room
@@ -49,12 +49,12 @@ with (obj_player2)
                 mach2 = 0
                 obj_camera.chargecamera = 0
                 image_index = 0
-                state = 64
+                state = states.victory
             }
         }
     }
 }
-if (((floor(obj_player1.image_index) == (obj_player1.image_number - 1)) && (obj_player1.state == 64)) || ((floor(obj_player2.image_index) == (obj_player2.image_number - 1)) && (obj_player2.state == 64)))
+if (((floor(obj_player1.image_index) == (obj_player1.image_number - 1)) && (obj_player1.state == states.victory)) || ((floor(obj_player2.image_index) == (obj_player2.image_number - 1)) && (obj_player2.state == states.victory)))
 {
     with (obj_player)
     {

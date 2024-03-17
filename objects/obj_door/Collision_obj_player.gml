@@ -2,7 +2,7 @@ if (!place_meeting(x, y, obj_doorblocked))
 {
     with (other.id)
     {
-        if (key_up && (((state == 0) || ((state == 69) || ((state == 70) || ((state == 91) || (state == 65))))) && ((y == (other.y + 50)) && ((!instance_exists(obj_noisesatellite)) && ((!instance_exists(obj_fadeout)) && ((state != 78) && ((state != 61) && (((obj_player1.spotlight == 1) && (object_index == obj_player1)) || ((obj_player1.spotlight == 0) && (object_index == obj_player2))))))))))
+        if (key_up && (((state == states.normal) || ((state == states.mach1) || ((state == states.mach2) || ((state == states.mach3) || (state == states.Sjump_prep))))) && ((y == (other.y + 50)) && ((!instance_exists(obj_noisesatellite)) && ((!instance_exists(obj_fadeout)) && ((state != states.door) && ((state != states.comingoutdoor) && (((obj_player1.spotlight == 1) && (object_index == obj_player1)) || ((obj_player1.spotlight == 0) && (object_index == obj_player2))))))))))
         {
             lastroom_x = other.x
             lastroom_y = other.y
@@ -19,7 +19,7 @@ if (!place_meeting(x, y, obj_doorblocked))
             obj_player2.targetDoor = other.targetDoor
             obj_player2.targetRoom = other.targetRoom
             obj_player.image_index = 0
-            obj_player.state = 78
+            obj_player.state = states.door
             obj_player.mach2 = 0
             if (instance_exists(obj_player2) && (global.coop == 1))
             {

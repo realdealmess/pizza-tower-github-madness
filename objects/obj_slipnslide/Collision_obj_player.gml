@@ -4,7 +4,7 @@ if (drop == 0)
     {
         other.drop = 1
         other.vsp = -5
-        state = 60
+        state = states.slipnslide
         if (movespeed < 12)
             movespeed = 12
     }

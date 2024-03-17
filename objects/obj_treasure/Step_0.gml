@@ -1,11 +1,11 @@
 if (player == 1)
 {
-    if ((sprite_index == sprgot) && (obj_player1.state != 23))
+    if ((sprite_index == sprgot) && (obj_player1.state != states.got_treasure))
         instance_destroy()
 }
 if (player == 2)
 {
-    if ((sprite_index == sprgot) && (obj_player2.state != 23))
+    if ((sprite_index == sprgot) && (obj_player2.state != states.got_treasure))
         instance_destroy()
 }
 if (sprite_index != sprgot)
@@ -27,7 +27,7 @@ if (place_meeting(x, y, obj_player1) && (player == 0))
                 other.alarm[0] = 150
             if (other.sprite_index == other.spridle)
             {
-                state = 23
+                state = states.got_treasure
                 scr_soundeffect(sfx_secretfound)
             }
             other.sprite_index = other.sprgot
@@ -58,7 +58,7 @@ if (place_meeting(x, y, obj_player2) && (player == 0))
                 other.alarm[0] = 150
             if (other.sprite_index == other.spridle)
             {
-                state = 23
+                state = states.got_treasure
                 scr_soundeffect(sfx_secretfound)
             }
             other.sprite_index = other.sprgot

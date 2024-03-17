@@ -37,7 +37,7 @@ function scr_player_freefallprep() {
 	if (floor(image_index) == (image_number - 1))
 	{
 	    vsp += 14
-	    state = 74
+	    state = states.freefall
 	    if (shotgunAnim == 0)
 	        sprite_index = spr_bodyslamfall
 	    else

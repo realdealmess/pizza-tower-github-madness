@@ -1,6 +1,6 @@
 with (obj_player)
 {
-    if (grounded && (((x > (other.x - 160)) && (x < (other.x + 160))) && (key_up && (((state == 0) || ((state == 69) || ((state == 70) || (state == 91)))) && ((global.panic == 1) || (global.snickchallenge == 1))))))
+    if (grounded && (((x > (other.x - 160)) && (x < (other.x + 160))) && (key_up && (((state == states.normal) || ((state == states.mach1) || ((state == states.mach2) || (state == states.mach3)))) && ((global.panic == 1) || (global.snickchallenge == 1))))))
     {
         if (global.timeattack == 1)
             obj_timeattack.stop = 1
@@ -274,11 +274,11 @@ with (obj_player)
         ini_close()
         if (!instance_exists(obj_endlevelfade))
             instance_create(x, y, obj_endlevelfade)
-        obj_player1.state = 78
+        obj_player1.state = states.door
         obj_player1.sprite_index = obj_player1.spr_lookdoor
         if instance_exists(obj_player2)
         {
-            obj_player2.state = 78
+            obj_player2.state = states.door
             obj_player2.sprite_index = obj_player2.spr_lookdoor
         }
         obj_endlevelfade.alarm[0] = 235

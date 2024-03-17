@@ -15,7 +15,7 @@ function scr_player_machroll() {
 	    image_speed = 0.35
 	    flash = 0
 	    combo = 0
-	    state = 72
+	    state = states.bump
 	    hsp = -2.5
 	    vsp = -3
 	    mach2 = 0
@@ -29,7 +29,7 @@ function scr_player_machroll() {
 	    image_speed = 0.35
 	    flash = 0
 	    combo = 0
-	    state = 72
+	    state = states.bump
 	    hsp = 2.5
 	    vsp = -3
 	    mach2 = 0
@@ -50,7 +50,7 @@ function scr_player_machroll() {
 	{
 	    image_index = 0
 	    scr_soundeffect(sfx_rollgetup)
-	    state = 70
+	    state = states.mach2
 	    sprite_index = spr_rollgetup
 	}
 

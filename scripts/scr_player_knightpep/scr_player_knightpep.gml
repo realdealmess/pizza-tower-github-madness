@@ -79,7 +79,7 @@ function scr_player_knightpep() {
 	{
 	    with (instance_place(x, (y + 1), obj_slope))
 	        other.xscale = (-sign(image_xscale))
-	    state = 18
+	    state = states.knightpepslopes
 	    sprite_index = spr_knightpepdownslope
 	}
 	if (move != 0)

@@ -22,7 +22,7 @@ function scr_player_cheesepepstick() {
 	    grav = 0.5
 	    image_index = 0
 	    sprite_index = spr_cheesepep_jump
-	    state = 13
+	    state = states.cheesepep
 	}
 	if (key_jump && (place_meeting((x + 1), y, obj_railv) || place_meeting((x - 1), y, obj_railv)))
 	{
@@ -31,7 +31,7 @@ function scr_player_cheesepepstick() {
 	    vsp = -9
 	    image_index = 0
 	    sprite_index = spr_cheesepep_jump
-	    state = 13
+	    state = states.cheesepep
 	}
 	if (key_jump && place_meeting(x, (y - 1), obj_railh))
 	{
@@ -40,7 +40,7 @@ function scr_player_cheesepepstick() {
 	    vsp = 1
 	    image_index = 0
 	    sprite_index = spr_cheesepep_jump
-	    state = 13
+	    state = states.cheesepep
 	}
 	image_speed = 0.35
 

@@ -41,14 +41,14 @@ function scr_player_Sjump() {
 	    }
 	    scr_soundeffect(sfx_groundpound)
 	    image_index = 0
-	    state = 93
+	    state = states.Sjumpland
 	    machhitAnim = 0
 	}
 	if (key_attack2 && (global.coop == 0))
 	{
 	    movespeed = 12
 	    machhitAnim = 0
-	    state = 91
+	    state = states.mach3
 	    flash = 1
 	    sprite_index = spr_mach4
 	    instance_create(x, y, obj_jumpdust)

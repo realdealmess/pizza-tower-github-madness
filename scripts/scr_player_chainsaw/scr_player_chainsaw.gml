@@ -8,7 +8,7 @@ function scr_player_chainsaw() {
 	if (((sprite_index == spr_player_chainsawend) || (sprite_index == spr_player_chainsawend)) && (!key_shoot))
 	{
 	    image_index = 0
-	    state = 0
+	    state = states.normal
 	}
 	if scr_solid((x + xscale), y)
 	{
@@ -16,7 +16,7 @@ function scr_player_chainsaw() {
 	    instance_create((x + (xscale * 10)), (y + 10), obj_bumpeffect)
 	    hsp = ((-xscale) * 5)
 	    vsp = -3
-	    state = 21
+	    state = states.chainsawbump
 	}
 	image_speed = 0.5
 

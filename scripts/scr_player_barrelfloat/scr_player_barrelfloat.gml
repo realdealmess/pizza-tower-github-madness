@@ -7,7 +7,7 @@ function scr_player_barrelfloat() {
 	{
 	    jumpstop = 1
 	    jumpAnim = 1
-	    state = 58
+	    state = states.jump
 	    landAnim = 0
 	    vsp = -7
 	    with (instance_create(x, y, obj_barrelfloat))

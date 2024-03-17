@@ -10,7 +10,7 @@ function scr_player_climbwall() {
 	sprite_index = spr_machclimbwall
 	if (!key_attack)
 	{
-	    state = 0
+	    state = states.normal
 	    movespeed = 0
 	}
 	if (scr_solid(x, (y - 1)) && ((!place_meeting(x, (y - 1), obj_destructibles)) && ((!place_meeting((x + sign(hsp)), y, obj_slope)) && (!place_meeting((x - sign(hsp)), y, obj_slope)))))
@@ -18,7 +18,7 @@ function scr_player_climbwall() {
 	    sprite_index = spr_superjumpland
 	    scr_soundeffect(sfx_groundpound)
 	    image_index = 0
-	    state = 93
+	    state = states.Sjumpland
 	    machhitAnim = 0
 	}
 	if (!scr_solid((x + xscale), y))
@@ -26,17 +26,17 @@ function scr_player_climbwall() {
 	    instance_create(x, y, obj_jumpdust)
 	    vsp = 0
 	    if (movespeed >= 8)
-	        state = 70
+	        state = states.mach2
 	    if ((movespeed >= 12) && (global.coop == 0))
 	    {
-	        state = 91
+	        state = states.mach3
 	        sprite_index = spr_mach4
 	    }
 	}
 	if key_jump
 	{
 	    movespeed = 8
-	    state = 70
+	    state = states.mach2
 	    image_index = 0
 	    sprite_index = spr_walljumpstart
 	    if (character == "P")
@@ -48,7 +48,7 @@ function scr_player_climbwall() {
 	}
 	if ((grounded && (wallspeed <= 0)) || (wallspeed <= 0))
 	{
-	    state = 58
+	    state = states.jump
 	    sprite_index = spr_fall
 	}
 	image_speed = 0.6

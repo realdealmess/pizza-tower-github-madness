@@ -18,14 +18,14 @@ function scr_player_slipnslide() {
 	crouchslideAnim = 1
 	if ((movespeed <= 0) && (!scr_slope()))
 	{
-	    state = 0
+	    state = states.normal
 	    movespeed = 0
 	    mach2 = 0
 	    image_index = 0
 	}
 	if ((scr_solid((x + 1), y) && (xscale == 1)) && (!place_meeting((x + sign(hsp)), y, obj_slope)))
 	{
-	    state = 72
+	    state = states.bump
 	    hsp = -2
 	    vsp = -3
 	    mach2 = 0
@@ -34,7 +34,7 @@ function scr_player_slipnslide() {
 	}
 	if ((scr_solid((x - 1), y) && (xscale == -1)) && (!place_meeting((x + sign(hsp)), y, obj_slope)))
 	{
-	    state = 72
+	    state = states.bump
 	    hsp = 2
 	    vsp = -3
 	    mach2 = 0

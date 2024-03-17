@@ -2,7 +2,7 @@ if ((room == rank_room) || (room == timesuproom))
     visible = false
 else
     visible = playerid.visible
-if (obj_player.state == 53)
+if (obj_player.state == states.pizzathrow)
     visible = false
 if ((sprite_index == spr_xmastomatotoppin_intro) && (floor(image_index) == (image_number - 1)))
     sprite_index = spr_xmastomatotoppin_idle

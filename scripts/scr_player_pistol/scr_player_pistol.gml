@@ -6,28 +6,28 @@ function scr_player_pistol() {
 	if (key_shoot2 && (key_down && (image_index > 2)))
 	{
 	    sprite_index = spr_player_crouchshoot
-	    state = 39
+	    state = states.pistol
 	    image_index = 0
 	    shoot = 1
 	}
 	else if (key_shoot2 && ((!key_up) && (image_index > 2)))
 	{
 	    sprite_index = spr_player_pistol
-	    state = 39
+	    state = states.pistol
 	    image_index = 0
 	    shoot = 1
 	}
 	else if (key_up && (key_shoot2 && ((move == 0) && (image_index > 2))))
 	{
 	    sprite_index = spr_player_shootup
-	    state = 39
+	    state = states.pistol
 	    image_index = 0
 	    shoot = 1
 	}
 	else if (key_up && (key_shoot2 && ((move != 0) && (image_index > 2))))
 	{
 	    sprite_index = spr_player_shootdiagonal
-	    state = 39
+	    state = states.pistol
 	    image_index = 0
 	    shoot = 1
 	}
@@ -39,9 +39,9 @@ function scr_player_pistol() {
 	crouchslideAnim = 1
 	crouchAnim = 1
 	if ((floor(image_index) == (image_number - 1)) && ((sprite_index != spr_player_crouchshoot) && ((sprite_index != spr_player_shootup) && ((sprite_index != spr_player_shootdiagonal) && ((sprite_index != spr_player_pistolair) && (!key_down))))))
-	    state = 0
+	    state = states.normal
 	else if ((floor(image_index) == (image_number - 1)) && (key_down && ((sprite_index != spr_player_shootup) && ((sprite_index != spr_player_shootdiagonal) && (sprite_index != spr_player_pistolair)))))
-	    state = 66
+	    state = states.crouch
 	else if ((floor(image_index) == (image_number - 1)) && (sprite_index != spr_player_pistolair))
 	{
 	    if (move != 0)
@@ -49,12 +49,12 @@ function scr_player_pistol() {
 	    else
 	        sprite_index = spr_player_aimup
 	    image_index = 2
-	    state = 16
+	    state = states.pistolaim
 	}
 	else if (grounded && ((vsp > 0) && (sprite_index == spr_player_pistolair)))
 	{
 	    sprite_index = spr_player_shootslide
-	    state = 68
+	    state = states.crouchslide
 	}
 	if ((shoot == 1) && ((floor(image_index) == 0) && ((sprite_index == spr_player_pistol) || (sprite_index == spr_player_pistolair))))
 	{

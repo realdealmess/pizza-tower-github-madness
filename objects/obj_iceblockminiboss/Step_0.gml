@@ -1,13 +1,13 @@
-if ((visible == true) && (obj_player.state != 4))
+if ((visible == true) && (obj_player.state != states.ejected))
 {
     if place_meeting(x, (y - 1), obj_player1)
     {
         with (obj_player1)
         {
-            if (state == 24)
-                state = 18
-            else if (state != 18)
-                state = 60
+            if (state == states.knightpep)
+                state = states.knightpepslopes
+            else if (state != states.knightpepslopes)
+                state = states.slipnslide
             if (movespeed < 12)
                 movespeed = 12
         }
@@ -16,10 +16,10 @@ if ((visible == true) && (obj_player.state != 4))
     {
         with (obj_player2)
         {
-            if (state == 24)
-                state = 18
-            else if (state != 18)
-                state = 60
+            if (state == states.knightpep)
+                state = states.knightpepslopes
+            else if (state != states.knightpepslopes)
+                state = states.slipnslide
             if (movespeed < 12)
                 movespeed = 12
         }

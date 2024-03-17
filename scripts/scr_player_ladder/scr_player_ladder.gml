@@ -41,7 +41,7 @@ function scr_player_ladder() {
 	{
 	    landAnim = 0
 	    jumpAnim = 0
-	    state = 0
+	    state = states.normal
 	    image_index = 0
 	    vsp = 0
 	}
@@ -50,13 +50,13 @@ function scr_player_ladder() {
 	    sprite_index = spr_jump
 	    ladderbuffer = 20
 	    jumpAnim = 1
-	    state = 58
+	    state = states.jump
 	    vsp = -9
 	    image_index = 0
 	}
 	if (key_down && (grounded && (!place_meeting(x, y, obj_platform))))
 	{
-	    state = 0
+	    state = states.normal
 	    image_index = 0
 	}
 

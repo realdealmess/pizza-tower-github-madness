@@ -1,4 +1,4 @@
-if ((obj_player1.state != 89) && (sprite_index == spr_taxiidle))
+if ((obj_player1.state != states.taxi) && (sprite_index == spr_taxiidle))
 {
     obj_player1.visible = false
     obj_player1.sprite_index = obj_player1.spr_idle
@@ -10,7 +10,7 @@ if ((obj_player1.state != 89) && (sprite_index == spr_taxiidle))
     sprite_index = spr_taximove
     hsp = 10
 }
-if ((obj_player2.state != 89) && (sprite_index == spr_taxiidle))
+if ((obj_player2.state != states.taxi) && (sprite_index == spr_taxiidle))
 {
     obj_player2.sprite_index = obj_player2.spr_idle
     scr_soundeffect(sfx_taxi2)

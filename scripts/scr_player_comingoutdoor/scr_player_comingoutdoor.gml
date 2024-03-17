@@ -13,7 +13,7 @@ function scr_player_comingoutdoor() {
 	{
 	    start_running = 1
 	    movespeed = 0
-	    state = 0
+	    state = states.normal
 	    image_alpha = 1
 	}
 	sprite_index = spr_walkfront

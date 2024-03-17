@@ -10,7 +10,7 @@ function scr_playerN_hookshot() {
 	    scr_sound(sound_jump)
 	    sprite_index = spr_jump
 	    stompAnim = 0
-	    state = 58
+	    state = states.jump
 	    jumpAnim = 1
 	    jumpstop = 0
 	    image_index = 0
@@ -37,7 +37,7 @@ function scr_playerN_hookshot() {
 	        if (grounded && point_in_rectangle(x, y, __view_get(0, 0), __view_get(1, 0), (__view_get(0, 0) + __view_get(2, 0)), (__view_get(1, 0) + __view_get(3, 0))))
 	        {
 	            image_index = 0
-	            state = 94
+	            state = enemy_states.idle
 	            vsp = -7
 	            hsp = 0
 	        }

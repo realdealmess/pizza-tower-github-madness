@@ -19,7 +19,7 @@ function scr_player_machslide() {
 	landAnim = 0
 	if ((floor(movespeed) <= 0) && ((sprite_index == spr_machslide) || (sprite_index == spr_crouchslide)))
 	{
-	    state = 0
+	    state = states.normal
 	    image_index = 0
 	    if (sprite_index == spr_machslide)
 	        machslideAnim = 1
@@ -29,7 +29,7 @@ function scr_player_machslide() {
 	{
 	    hsp = ((-xscale) * 2.5)
 	    vsp = -4
-	    state = 72
+	    state = states.bump
 	    image_index = 4
 	}
 	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_machslideboost))
@@ -38,7 +38,7 @@ function scr_player_machslide() {
 	    image_index = 0
 	    xscale *= -1
 	    movespeed = 8
-	    state = 70
+	    state = states.mach2
 	}
 	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_mach3boost))
 	{
@@ -47,12 +47,12 @@ function scr_player_machslide() {
 	    image_index = 0
 	    xscale *= -1
 	    movespeed = 12
-	    state = 91
+	    state = states.mach3
 	}
 	if ((sprite_index == spr_player_crouchslide) && ((movespeed == 0) && grounded))
 	{
 	    facehurt = 1
-	    state = 0
+	    state = states.normal
 	    sprite_index = spr_facehurtup
 	}
 	if (mach2 == 0)

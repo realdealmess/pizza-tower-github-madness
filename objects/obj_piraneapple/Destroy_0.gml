@@ -10,7 +10,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1)
     instance_create(x, y, obj_baddiegibs)
     instance_create(x, y, obj_baddiegibs)
     instance_create(x, (y + 30), obj_bangeffect)
-    if ((obj_player.state == 22) && ((obj_player.sprite_index != spr_player_suplexmash1) && ((obj_player.sprite_index != spr_player_suplexmash2) && ((obj_player.sprite_index != spr_player_suplexmash3) && (obj_player.sprite_index != spr_player_suplexmash4)))))
+    if ((obj_player.state == states.handstandjump) && ((obj_player.sprite_index != spr_player_suplexmash1) && ((obj_player.sprite_index != spr_player_suplexmash2) && ((obj_player.sprite_index != spr_player_suplexmash3) && (obj_player.sprite_index != spr_player_suplexmash4)))))
     {
         obj_player.sprite_index = choose(spr_player_suplexmash1, spr_player_suplexmash2, spr_player_suplexmash3, spr_player_suplexmash4)
         image_index = 0

@@ -4,11 +4,11 @@ function scr_player_grind() {
 	crouchslideAnim = 1
 	hsp = (xscale * movespeed)
 	if (!grinding)
-	    state = 70
+	    state = states.mach2
 	if key_jump
 	{
 	    vsp = -6
-	    state = 70
+	    state = states.mach2
 	    grinding = 0
 	}
 	sprite_index = spr_player_grind

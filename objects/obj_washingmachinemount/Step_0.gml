@@ -1,3 +1,3 @@
-if (obj_player.state != 9)
+if (obj_player.state != states.noise_hookshot)
     visible = true
 

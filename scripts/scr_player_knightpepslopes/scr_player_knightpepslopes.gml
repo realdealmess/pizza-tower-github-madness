@@ -82,12 +82,12 @@ function scr_player_knightpepslopes() {
 	    image_index = 0
 	    obj_player.image_index = 0
 	    obj_player.flash = 1
-	    state = 72
+	    state = states.bump
 	}
 	if ((movespeed <= 0) && (sprite_index == spr_knightpepcharge))
 	{
 	    sprite_index = spr_knightpepidle
-	    state = 24
+	    state = states.knightpep
 	}
 	image_speed = 0.4
 

@@ -53,7 +53,7 @@ function scr_player_freefall() {
 	    else
 	        sprite_index = spr_shotgunjump2
 	    image_index = 0
-	    state = 77
+	    state = states.freefall_land
 	    jumpAnim = 1
 	    jumpstop = 0
 	    with (obj_baddie)

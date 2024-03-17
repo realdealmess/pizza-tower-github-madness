@@ -63,7 +63,7 @@ function scr_keyname(argument0) {
 	    return "F11";
 	if (argument0 == 123)
 	    return "F12";
-	if (argument0 == 96)
+	if (argument0 == enemy_states.charge)
 	    return "NUMPAD 0";
 	if (argument0 == 97)
 	    return "NUMPAD 1";

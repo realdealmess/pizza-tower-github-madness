@@ -13,13 +13,13 @@ function scr_player_crouchslide() {
 	    if (character == "P")
 	        sprite_index = spr_player_machhit
 	    mach2 = 35
-	    state = 70
+	    state = states.mach2
 	    if (movespeed < 10)
 	        movespeed = 10
 	}
 	if ((((hsp == 0) || ((scr_solid((x + 1), y) && (xscale == 1)) || (scr_solid((x - 1), y) && (xscale == -1)))) && (!place_meeting((x + sign(hsp)), y, obj_slope))) || (movespeed <= 0))
 	{
-	    state = 66
+	    state = states.crouch
 	    movespeed = 0
 	    mach2 = 0
 	    crouchslideAnim = 1
@@ -31,7 +31,7 @@ function scr_player_crouchslide() {
 	if ((scr_solid((x + 1), y) && (xscale == 1)) && (!place_meeting((x + sign(hsp)), y, obj_slope)))
 	{
 	    movespeed = 0
-	    state = 72
+	    state = states.bump
 	    hsp = -2.5
 	    vsp = -3
 	    mach2 = 0
@@ -43,7 +43,7 @@ function scr_player_crouchslide() {
 	if ((scr_solid((x - 1), y) && (xscale == -1)) && (!place_meeting((x + sign(hsp)), y, obj_slope)))
 	{
 	    movespeed = 0
-	    state = 72
+	    state = states.bump
 	    hsp = 2.5
 	    vsp = -3
 	    mach2 = 0

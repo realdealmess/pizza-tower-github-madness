@@ -2,8 +2,8 @@ if (object_index == obj_player1)
 {
     if (global.coop == 1)
         scr_changetoppings()
-    if (state == 46)
-        state = 0
+    if (state == states.grab)
+        state = states.normal
     if ((object_index == obj_player2) && ((obj_player1.spotlight == 1) && (global.coop == 1)))
     {
         alarm[5] = 2

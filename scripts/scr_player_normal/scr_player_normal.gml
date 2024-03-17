@@ -181,7 +181,7 @@ function scr_player_normal() {
 	    else
 	        sprite_index = spr_shotgunfall
 	    jumpAnim = 0
-	    state = 58
+	    state = states.jump
 	    image_index = 0
 	}
 	if (key_jump && (grounded && (!key_down)))
@@ -196,7 +196,7 @@ function scr_player_normal() {
 	        vsp = -11
 	    else
 	        vsp = -13
-	    state = 58
+	    state = states.jump
 	    image_index = 0
 	    jumpAnim = 1
 	}
@@ -213,7 +213,7 @@ function scr_player_normal() {
 	        vsp = -11
 	    else
 	        vsp = -13
-	    state = 58
+	    state = states.jump
 	    jumpAnim = 1
 	    jumpstop = 0
 	    image_index = 0
@@ -221,7 +221,7 @@ function scr_player_normal() {
 	}
 	if (((key_down && grounded) || (scr_solid(x, (y - 3)) && grounded)) && ((character == "P") || (character == "N")))
 	{
-	    state = 66
+	    state = states.crouch
 	    landAnim = 0
 	    crouchAnim = 1
 	    image_index = 0
@@ -255,7 +255,7 @@ function scr_player_normal() {
 	{
 	    suplexmove = 1
 	    suplexdashsnd = audio_play_sound(sfx_suplexdash, 1, false)
-	    state = 22
+	    state = states.handstandjump
 	    image_index = 0
 	    if (shotgunAnim == 0)
 	        sprite_index = spr_suplexdash
@@ -269,7 +269,7 @@ function scr_player_normal() {
 	if (key_slap2 && ((shotgunAnim == 1) && key_up))
 	{
 	    scr_soundeffect(sfx_killingblow)
-	    state = 38
+	    state = states.shotgun
 	    with (instance_create(x, y, obj_pistoleffect))
 	        image_xscale = other.image_xscale
 	    image_index = 0
@@ -288,7 +288,7 @@ function scr_player_normal() {
 	    movespeed = 6
 	    sprite_index = spr_mach1
 	    jumpAnim = 1
-	    state = 69
+	    state = states.mach1
 	    image_index = 0
 	}
 	if ((character == "S") && ((move != 0) && (!place_meeting((x + xscale), y, obj_solid))))
@@ -296,12 +296,12 @@ function scr_player_normal() {
 	    movespeed = 6
 	    sprite_index = spr_mach1
 	    jumpAnim = 1
-	    state = 69
+	    state = states.mach1
 	    image_index = 0
 	}
 	if (key_attack && ((!place_meeting((x + xscale), y, obj_solid)) && ((character == "S") && grounded)))
 	{
-	    state = 22
+	    state = states.handstandjump
 	    movespeed = 0
 	}
 	if ((move != 0) && (((floor(image_index) == 3) || (floor(image_index) == 8)) && (steppy == 0)))
@@ -318,7 +318,7 @@ function scr_player_normal() {
 	    tauntstoredmovespeed = movespeed
 	    tauntstoredsprite = sprite_index
 	    tauntstoredstate = state
-	    state = 51
+	    state = states.backbreaker
 	    image_index = random_range(0, (sprite_get_number(spr_taunt) - 1))
 	    sprite_index = spr_taunt
 	    instance_create(x, y, obj_taunteffect)

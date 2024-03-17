@@ -1,4 +1,4 @@
-if (grounded && ((other.sprite_index == spr_swordstone) && (state == 22)))
+if (grounded && ((other.sprite_index == spr_swordstone) && (state == states.handstandjump)))
 {
     scr_soundeffect(sfx_knightsword)
     global.SAGEknighttaken = 1
@@ -8,7 +8,7 @@ if (grounded && ((other.sprite_index == spr_swordstone) && (state == 22)))
     image_index = 0
     image_speed = 0.35
     sprite_index = spr_knightpepstart
-    state = 24
+    state = states.knightpep
     hsp = 0
 }
 

@@ -1,7 +1,7 @@
-if ((cutscene == 0) && ((other.grounded == 1) && ((state != 27) && ((state == 22) || (character == "S")))))
+if ((cutscene == 0) && ((other.grounded == 1) && ((state != states.bombpep) && ((state == states.handstandjump) || (character == "S")))))
 {
     bombpeptimer = 100
-    state = 27
+    state = states.bombpep
     image_index = 0
     sprite_index = spr_bombpepintro
     instance_destroy(other.id)

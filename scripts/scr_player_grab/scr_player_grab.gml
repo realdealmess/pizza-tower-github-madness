@@ -146,7 +146,7 @@ function scr_player_grab() {
 	if (swingdingbuffer > 0)
 	    swingdingbuffer -= 1
 	if ((sprite_index == spr_swingding) && (swingdingbuffer < 150))
-	    state = 0
+	    state = states.normal
 	if ((swingdingbuffer > 300) && (sprite_index != spr_swingding))
 	{
 	    sprite_index = spr_swingding
@@ -158,7 +158,7 @@ function scr_player_grab() {
 	{
 	    if (move != 0)
 	        move = xscale
-	    state = 3
+	    state = states.finishingblow
 	    if (sprite_index == spr_swingding)
 	        sprite_index = spr_swingdingend
 	    else if (!key_up)
@@ -171,7 +171,7 @@ function scr_player_grab() {
 	}
 	if key_attack2
 	{
-	    state = 10
+	    state = states.tacklecharge
 	    sprite_index = spr_charge
 	    with (instance_create(x, y, obj_jumpdust))
 	        image_xscale = other.xscale
@@ -181,7 +181,7 @@ function scr_player_grab() {
 	{
 	    sprite_index = spr_piledriver
 	    vsp = -6
-	    state = 43
+	    state = states.superslam
 	    image_index = 0
 	    image_speed = 0.35
 	}
@@ -189,7 +189,7 @@ function scr_player_grab() {
 	    instance_create(x, (y + 43), obj_cloudeffect)
 	if (key_down && grounded)
 	{
-	    state = 66
+	    state = states.crouch
 	    landAnim = 0
 	    crouchAnim = 1
 	    image_index = 0

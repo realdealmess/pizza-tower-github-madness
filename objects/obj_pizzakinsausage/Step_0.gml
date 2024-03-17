@@ -2,7 +2,7 @@ if ((room == rank_room) || (room == timesuproom))
     visible = false
 else
     visible = playerid.visible
-if (obj_player.state == 53)
+if (obj_player.state == states.pizzathrow)
     visible = false
 if (obj_player1.spotlight == 1)
     playerid = obj_player1

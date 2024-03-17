@@ -1,6 +1,6 @@
 if ((room == rank_room) || (room == timesuproom))
     visible = false
-if (obj_player.state == 53)
+if (obj_player.state == states.pizzathrow)
     visible = false
 if (global.miniboss == 0)
     instance_destroy()

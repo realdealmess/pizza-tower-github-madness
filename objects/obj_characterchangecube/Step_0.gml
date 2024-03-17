@@ -17,9 +17,9 @@ if (place_meeting(x, y, obj_player) && (activated == 0))
             taunttimer = 20
             tauntstoredmovespeed = 0
             tauntstoredsprite = spr_fall
-            tauntstoredstate = 58
+            tauntstoredstate = states.jump
             scr_soundeffect(sfx_taunt)
-            state = 51
+            state = states.backbreaker
             image_index = random_range(0, (sprite_get_number(spr_taunt) - 1))
             sprite_index = spr_taunt
             instance_create(x, y, obj_taunteffect)

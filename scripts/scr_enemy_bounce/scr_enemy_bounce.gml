@@ -132,7 +132,7 @@ function scr_enemy_bounce() {
 	        }
 	    }
 	    image_index = 0
-	    state = 94
+	    state = enemy_states.idle
 	    sprite_index = idlespr
 	}
 	image_speed = 0.35

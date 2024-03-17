@@ -6,7 +6,7 @@ function scr_player_bump() {
 	if (grounded && (vsp > 0))
 	    hsp = 0
 	if (floor(image_index) == (image_number - 1))
-	    state = 0
+	    state = states.normal
 	if ((sprite_index != spr_player_catched) && ((sprite_index != spr_tumbleend) && (sprite_index != spr_hitwall)))
 	    sprite_index = spr_bump
 	image_speed = 0.35

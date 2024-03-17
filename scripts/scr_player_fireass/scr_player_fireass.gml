@@ -35,7 +35,7 @@ function scr_player_fireass() {
 	        alarm[5] = 2
 	        alarm[7] = 60
 	        hurted = 1
-	        state = 0
+	        state = states.normal
 	        sprite_index = spr_idle
 	        image_index = 0
 	    }
@@ -49,7 +49,7 @@ function scr_player_fireass() {
 	        alarm[5] = 2
 	        alarm[7] = 60
 	        hurted = 1
-	        state = 0
+	        state = states.normal
 	        sprite_index = spr_idle
 	        image_index = 0
 	    }

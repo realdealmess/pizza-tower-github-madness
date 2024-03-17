@@ -16,7 +16,7 @@ if ((global.snickchallenge == 1) && (global.collect == 0))
 {
     with (obj_player)
     {
-        state = 55
+        state = states.gameover
         sprite_index = spr_deathstart
         image_index = 0
         audio_stop_all()
@@ -31,7 +31,7 @@ if (global.miniboss == 1)
         instance_create(x, y, obj_bangeffect)
         repeat (6)
             instance_create(x, y, obj_slapstar)
-        state = 4
+        state = states.ejected
         vsp = -10
         audio_stop_all()
         scr_soundeffect(mu_timesup)

@@ -1,2 +1,2 @@
-targetRoom = 135
+targetRoom = chateau_5
 visible = false

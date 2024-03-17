@@ -15,7 +15,7 @@ function scr_player_tacklecharge() {
 	    movespeed += 0.05
 	if key_slap2
 	{
-	    state = 47
+	    state = states.punch
 	    image_index = 1
 	    image_speed = 0.35
 	}
@@ -55,7 +55,7 @@ function scr_player_tacklecharge() {
 	        thrown = 1
 	        x = obj_player.x
 	        y = obj_player.y
-	        state = 106
+	        state = enemy_states.stun
 	        hsp = ((-image_xscale) * 10)
 	        vsp = -10
 	        with (obj_camera)
@@ -65,7 +65,7 @@ function scr_player_tacklecharge() {
 	        }
 	    }
 	    movespeed = 0
-	    state = 72
+	    state = states.bump
 	    hsp = -2.5
 	    vsp = -3
 	    mach2 = 0
@@ -92,7 +92,7 @@ function scr_player_tacklecharge() {
 	        thrown = 1
 	        x = obj_player.x
 	        y = obj_player.y
-	        state = 106
+	        state = enemy_states.stun
 	        hsp = ((-image_xscale) * 10)
 	        vsp = -10
 	        with (obj_camera)
@@ -102,7 +102,7 @@ function scr_player_tacklecharge() {
 	        }
 	    }
 	    movespeed = 0
-	    state = 72
+	    state = states.bump
 	    hsp = 2.5
 	    vsp = -3
 	    mach2 = 0
@@ -116,23 +116,23 @@ function scr_player_tacklecharge() {
 	    sprite_index = spr_crouchslip
 	    if (character == "P")
 	        machhitAnim = 0
-	    state = 68
+	    state = states.crouchslide
 	}
 	if ((!key_attack) && ((move != xscale) && grounded))
 	{
 	    image_index = 0
-	    state = 71
+	    state = states.machslide
 	    scr_soundeffect(sfx_machslide)
 	    sprite_index = spr_machslidestart
 	}
 	if ((move == (-xscale)) && grounded)
 	{
 	    image_index = 0
-	    state = 71
+	    state = states.machslide
 	    sprite_index = spr_machslideboost
 	}
 	if ((move == xscale) && ((!key_attack) && grounded))
-	    state = 0
+	    state = states.normal
 	if ((!instance_exists(dashcloudid)) && grounded)
 	{
 	    with (instance_create(x, y, obj_dashcloud))

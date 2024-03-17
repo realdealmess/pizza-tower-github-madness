@@ -14,7 +14,7 @@ function scr_player_tumble() {
 	    hsp = 0
 	    movespeed = 0
 	    sprite_index = spr_tumbleend
-	    state = 72
+	    state = states.bump
 	    image_index = 0
 	}
 	if key_jump

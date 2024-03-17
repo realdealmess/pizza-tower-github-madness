@@ -1,22 +1,22 @@
 function scr_hurtplayer(argument0) {
 	with (argument0)
 	{
-	    if (((state == 24) || ((state == 25) || (state == 18))) && (cutscene == 0))
+	    if (((state == states.knightpep) || ((state == states.knightpepattack) || (state == states.knightpepslopes))) && (cutscene == 0))
 	    {
 	    }
-	    else if ((state == 27) && (hurted == 0))
+	    else if ((state == states.bombpep) && (hurted == 0))
 	    {
 	    }
-	    else if (state == 15)
+	    else if (state == states.boxxedpep)
 	    {
 	    }
-	    else if (state == 2)
+	    else if (state == states.tumble)
 	    {
 	    }
-	    else if ((state == 13) || (state == 14))
+	    else if ((state == states.cheesepep) || (state == states.cheesepepstick))
 	    {
 	    }
-	    else if ((state != 73) && ((hurted == 0) && (cutscene == 0)))
+	    else if ((state != states.hurt) && ((hurted == 0) && (cutscene == 0)))
 	    {
 	        scr_soundeffect(sfx_pephurt)
 	        alarm[8] = 60
@@ -61,7 +61,7 @@ function scr_hurtplayer(argument0) {
 	            }
 	        }
 	        instance_create(x, y, obj_spikehurteffect)
-	        state = 73
+	        state = states.hurt
 	        image_index = 0
 	        flash = 1
 	        if (shotgunAnim == 0)

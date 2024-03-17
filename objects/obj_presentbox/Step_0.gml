@@ -75,15 +75,15 @@ switch global.boxhp
         break
 }
 
-if (obj_player.state == (22 << 0) && place_meeting(x, y, obj_player) && sprite_index != spr_present)
+if (obj_player.state == states.handstandjump && place_meeting(x, y, obj_player) && sprite_index != spr_present)
 {
     with (obj_player1)
     {
-        if (state == (22 << 0))
+        if (state == states.handstandjump)
         {
             sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_punch)
             image_index = 0
-            state = (57 << 0)
+            state = states.tackle
             movespeed = 3
             vsp = -3
         }

@@ -24,9 +24,9 @@ if (optionsaved_resolution == 0)
 else
     draw_text_colour(300, 300, string_hash_to_newline("480X270"), c_white, c_white, c_white, c_white, 0.5)
 if (optionsaved_resolution == 1)
-    draw_text_colour(480, 300, string_hash_to_newline("960X540"), c_white, c_white, c_white, c_white, 1)
+    draw_text_colour(480, 300, string_hash_to_newline("980X540"), c_white, c_white, c_white, c_white, 1)
 else
-    draw_text_colour(480, 300, string_hash_to_newline("960X540"), c_white, c_white, c_white, c_white, 0.5)
+    draw_text_colour(480, 300, string_hash_to_newline("980X540"), c_white, c_white, c_white, c_white, 0.5)
 if (optionsaved_resolution == 2)
     draw_text_colour(680, 300, string_hash_to_newline("1980X1080"), c_white, c_white, c_white, c_white, 1)
 else

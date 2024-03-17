@@ -5,11 +5,11 @@ function scr_enemy_idle() {
 	    image_index = 0
 	}
 	if ((vsp >= 0) && ((sprite_index == scaredspr) && grounded))
-	    state = 102
+	    state = enemy_states.walk
 	if ((object_index == obj_ancho) && ((sprite_index == scaredspr) && (floor(image_index) == (image_number - 1))))
-	    state = 102
+	    state = enemy_states.walk
 	if ((object_index == obj_forknight) && ((sprite_index == spr_forknight_turn) && (floor(image_index) == (image_number - 1))))
-	    state = 102
+	    state = enemy_states.walk
 	if ((grounded || (grounded && (!place_meeting(x, y, obj_platform)))) && (vsp > 0))
 	    hsp = 0
 	if ((!(grounded || (grounded && (!place_meeting(x, y, obj_platform))))) && (hsp < 0))

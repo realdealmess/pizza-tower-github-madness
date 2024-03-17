@@ -13,7 +13,7 @@ function scr_player_chainsawpogo() {
 	if ((scr_solid((x + 1), y) && (xscale == 1)) && (!place_meeting((x + sign(hsp)), y, obj_slope)))
 	{
 	    machhitAnim = 0
-	    state = 21
+	    state = states.chainsawbump
 	    hsp = -2.5
 	    vsp = -3
 	    mach2 = 0
@@ -26,7 +26,7 @@ function scr_player_chainsawpogo() {
 	else if ((scr_solid((x - 1), y) && (xscale == -1)) && (!place_meeting((x + sign(hsp)), y, obj_slope)))
 	{
 	    machhitAnim = 0
-	    state = 21
+	    state = states.chainsawbump
 	    hsp = 2.5
 	    vsp = -3
 	    mach2 = 0

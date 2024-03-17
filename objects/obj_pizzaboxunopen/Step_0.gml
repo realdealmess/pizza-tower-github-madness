@@ -6,7 +6,7 @@ if (place_meeting(x, y, obj_player) && (sprite_index == spr_pizzaboxunopen))
     {
         with (obj_player)
         {
-            state = 51
+            state = states.backbreaker
             sprite_index = spr_player_bossintro
             image_index = 0
         }

@@ -4,7 +4,7 @@ if (object_index != obj_pizzaball)
     {
         if (instance_exists(baddieID) && (baddieID != other.id))
         {
-            if ((baddieID.state == 106) && (baddieID.thrown == 1))
+            if ((baddieID.state == enemy_states.stun) && (baddieID.thrown == 1))
             {
                 baddieID.grabbedby = other.baddieID.grabbedby
                 instance_destroy()

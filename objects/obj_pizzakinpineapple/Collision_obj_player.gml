@@ -1,4 +1,4 @@
-if ((obj_player.state != 73) && (global.pineapplefollow == 0))
+if ((obj_player.state != states.hurt) && (global.pineapplefollow == 0))
 {
     global.combotime = 60
     global.style += 50

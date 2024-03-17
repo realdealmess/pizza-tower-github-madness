@@ -1,4 +1,4 @@
-if ((obj_player.state != 73) && (global.tomatofollow == 0))
+if ((obj_player.state != states.hurt) && (global.tomatofollow == 0))
 {
     global.combotime = 60
     global.style += 50

@@ -4,9 +4,9 @@ else
     hsp = ((-image_xscale) * movespeed)
 if ((flash == 1) && (alarm[2] <= 0))
     alarm[2] = (0.15 * room_speed)
-if (state != 109)
+if (state != enemy_states.grabbed)
     depth = 0
-if (state != 106)
+if (state != enemy_states.stun)
     thrown = 0
 if (((obj_player.x > (x - 400)) && (obj_player.x < (x + 400))) && ((y + 200) > obj_player.y))
     attack = 1

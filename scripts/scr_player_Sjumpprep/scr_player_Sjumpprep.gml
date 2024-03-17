@@ -65,7 +65,7 @@ function scr_player_Sjumpprep() {
 	    scr_soundeffect(sfx_superjumprelease)
 	    instance_create(x, y, obj_explosioneffect)
 	    sprite_index = spr_superjump
-	    state = 63
+	    state = states.Sjump
 	    vsp = -15
 	}
 	if (!audio_is_playing(superjumpholdsnd))

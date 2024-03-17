@@ -32,7 +32,7 @@ if (obj_player1.spotlight == 1)
 if (obj_player1.spotlight == 0)
     playerid = obj_player1
 if (playerid.character == "N")
-    spr_arrow = 1087
+    spr_arrow = spr_noiseicon
 else
-    spr_arrow = 1086
+    spr_arrow = spr_peppinoicon
 

@@ -1,48 +1,48 @@
 switch state
 {
-    case 94:
+    case enemy_states.idle:
         scr_enemy_idle()
         break
-    case 96:
+    case enemy_states.charge:
         scr_enemy_charge()
         break
-    case 98:
+    case enemy_states.turn:
         scr_enemy_turn()
         break
-    case 102:
+    case enemy_states.walk:
         scr_enemy_walk()
         break
-    case 104:
+    case enemy_states.land:
         scr_enemy_land()
         break
-    case 105:
+    case enemy_states.hit:
         scr_enemy_hit()
         break
-    case 106:
+    case enemy_states.stun:
         scr_enemy_stun()
         break
-    case 97:
+    case enemy_states.pizzagoblin_throw:
         scr_pizzagoblin_throw()
         break
-    case 109:
+    case enemy_states.grabbed:
         scr_enemy_grabbed()
         break
 }
 
 
-if ((state == 106) && ((stunned > 100) && (birdcreated == 0)))
+if ((state == enemy_states.stun) && ((stunned > 100) && (birdcreated == 0)))
 {
     birdcreated = 1
     with (instance_create(x, y, obj_enemybird))
         ID = other.id
 }
-if (state != 106)
+if (state != enemy_states.stun)
     birdcreated = 0
 if (((obj_player1.x > (x - 400)) && (obj_player1.x < (x + 400))) && ((y <= (obj_player1.y + 60)) && (y >= (obj_player1.y - 60))))
 {
-    if ((state != 94) && (obj_player1.state == 91))
+    if ((state != enemy_states.idle) && (obj_player1.state == states.mach3))
     {
-        state = 94
+        state = enemy_states.idle
         sprite_index = scaredspr
         if (x != obj_player1.x)
             image_xscale = (-sign((x - obj_player1.x)))
@@ -52,9 +52,9 @@ if instance_exists(obj_player2)
 {
     if (((obj_player2.x > (x - 400)) && (obj_player2.x < (x + 400))) && ((y <= (obj_player2.y + 60)) && (y >= (obj_player2.y - 60))))
     {
-        if ((state != 94) && (obj_player2.state == 91))
+        if ((state != enemy_states.idle) && (obj_player2.state == states.mach3))
         {
-            state = 94
+            state = enemy_states.idle
             sprite_index = scaredspr
             if (x != obj_player2.x)
                 image_xscale = (-sign((x - obj_player2.x)))
@@ -65,12 +65,12 @@ if ((x != obj_player1.x) && grounded)
 {
     if (((obj_player1.x > (x - 400)) && (obj_player1.x < (x + 400))) && ((y <= (obj_player1.y + 20)) && (y >= (obj_player1.y - 20))))
     {
-        if ((state == 102) && (charging == 0))
+        if ((state == enemy_states.walk) && (charging == 0))
         {
             with (instance_create(x, y, obj_forkhitbox))
                 ID = other.id
             charging = 1
-            state = 96
+            state = enemy_states.charge
             movespeed = 5
             vsp = -7
             sprite_index = spr_fencer_chargestart
@@ -83,12 +83,12 @@ if instance_exists(obj_player2)
     {
         if (((obj_player2.x > (x - 400)) && (obj_player2.x < (x + 400))) && ((y <= (obj_player2.y + 20)) && (y >= (obj_player2.y - 20))))
         {
-            if ((state == 102) && (charging == 0))
+            if ((state == enemy_states.walk) && (charging == 0))
             {
                 with (instance_create(x, y, obj_forkhitbox))
                     ID = other.id
                 charging = 1
-                state = 96
+                state = enemy_states.charge
                 movespeed = 5
                 vsp = -7
                 sprite_index = spr_fencer_chargestart
@@ -96,7 +96,7 @@ if instance_exists(obj_player2)
         }
     }
 }
-if ((state == 106) || (state == 102))
+if ((state == enemy_states.stun) || (state == enemy_states.walk))
 {
     charging = 0
     movespeed = 0
@@ -105,15 +105,15 @@ if ((sprite_index == spr_fencer_chargestart) && (floor(image_index) == (image_nu
     sprite_index = spr_fencer_charge
 if ((flash == 1) && (alarm[2] <= 0))
     alarm[2] = (0.15 * room_speed)
-if ((hitboxcreate == 0) && (state == 102))
+if ((hitboxcreate == 0) && (state == enemy_states.walk))
 {
     hitboxcreate = 1
     with (instance_create(x, y, obj_forkhitbox))
         ID = other.id
 }
-if (state != 109)
+if (state != enemy_states.grabbed)
     depth = 0
-if (state != 106)
+if (state != enemy_states.stun)
     thrown = 0
 if (boundbox == 0)
 {

@@ -58,42 +58,42 @@ if (levelselect == 1)
             {
                 if (other.b == 0)
                 {
-                    obj_player.targetRoom = 96
+                    obj_player.targetRoom = 96 // again, is referenced as "floor1_room0" but not in the code.
                     obj_player.player_x = 208
                     obj_player.player_y = 434
                     obj_player.character = "P"
                 }
                 if (other.b == 1)
                 {
-                    obj_player.targetRoom = 224
+                    obj_player.targetRoom = 224 // floor2_room0
                     obj_player.player_x = 208
                     obj_player.player_y = 434
                     obj_player.character = "P"
                 }
                 if (other.b == 2)
                 {
-                    obj_player.targetRoom = 200
+                    obj_player.targetRoom = 200 // floor3_room0
                     obj_player.player_x = 976
                     obj_player.player_y = 434
                     obj_player.character = "P"
                 }
                 if (other.b == 3)
                 {
-                    obj_player.targetRoom = 176
+                    obj_player.targetRoom = 176 // floor4_room0
                     obj_player.player_x = 304
                     obj_player.player_y = 402
                     obj_player.character = "P"
                 }
                 if (other.b == 4)
                 {
-                    obj_player.targetRoom = 188
+                    obj_player.targetRoom = 188 // floor5_room1
                     obj_player.player_x = 244
                     obj_player.player_y = 187
                     obj_player.character = "P"
                 }
                 if (other.b == 5)
                 {
-                    obj_player.targetRoom = 167
+                    obj_player.targetRoom = 167 // golf_room1
                     obj_player.player_x = 176
                     obj_player.player_y = 402
                     obj_player.character = "P"
@@ -106,14 +106,14 @@ if (levelselect == 1)
             {
                 if (other.b == 0)
                 {
-                    obj_player.targetRoom = 108
+                    obj_player.targetRoom = 108 // floor1_roomtreasure
                     obj_player.player_x = 250
                     obj_player.player_y = 250
                     obj_player.character = "P"
                 }
                 if (other.b == 1)
                 {
-                    obj_player.targetRoom = 241
+                    obj_player.targetRoom = 241 // floor2_roomtreasure
                     obj_player.player_x = 250
                     obj_player.player_y = 250
                     obj_player.character = "P"

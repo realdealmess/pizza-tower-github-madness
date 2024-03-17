@@ -6,12 +6,12 @@ function scr_player_barrelfall() {
 	    vsp -= 1
 	if grounded
 	{
-	    state = 79
+	    state = states.barrelcrouch
 	    image_index = 0
 	}
 	if place_meeting(x, y, obj_water2)
 	{
-	    state = 80
+	    state = states.barrelfloat
 	    image_index = 0
 	}
 	sprite_index = spr_player_barrelfall

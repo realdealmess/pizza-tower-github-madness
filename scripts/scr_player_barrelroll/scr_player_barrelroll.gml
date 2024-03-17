@@ -13,7 +13,7 @@ function scr_player_barrelroll() {
 	{
 	    barrel = 0
 	    mask_index = spr_player_mask
-	    state = 72
+	    state = states.bump
 	    hsp = -2
 	    vsp = -2
 	    mach2 = 0
@@ -34,7 +34,7 @@ function scr_player_barrelroll() {
 	{
 	    barrel = 0
 	    mask_index = spr_player_mask
-	    state = 72
+	    state = states.bump
 	    hsp = 2
 	    vsp = -2
 	    mach2 = 0

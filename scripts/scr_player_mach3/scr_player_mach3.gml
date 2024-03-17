@@ -94,7 +94,7 @@ function scr_player_mach3() {
 	if key_up
 	{
 	    sprite_index = spr_superjumpprep
-	    state = 65
+	    state = states.Sjump_prep
 	    hsp = 0
 	    image_index = 0
 	}
@@ -102,14 +102,14 @@ function scr_player_mach3() {
 	{
 	    sprite_index = spr_machslidestart
 	    scr_soundeffect(sfx_break)
-	    state = 71
+	    state = states.machslide
 	    image_index = 0
 	}
 	if ((move == (-xscale)) && (grounded && (((character == "P") || (character == "N")) && (fightball == 0))))
 	{
 	    scr_soundeffect(sfx_machslideboost)
 	    sprite_index = spr_mach3boost
-	    state = 71
+	    state = states.machslide
 	    image_index = 0
 	}
 	if (key_down && ((fightball == 0) && (!place_meeting(x, y, obj_dashpad))))
@@ -117,13 +117,13 @@ function scr_player_mach3() {
 	    with (instance_create(x, y, obj_jumpdust))
 	        image_xscale = other.xscale
 	    flash = 0
-	    state = 37
+	    state = states.machroll
 	    vsp = 10
 	}
 	if (((!grounded) && (place_meeting((x + hsp), y, obj_solid) && ((!place_meeting((x + hsp), y, obj_destructibles)) && ((!place_meeting((x + hsp), y, obj_metalblock)) && (!place_meeting((x + sign(hsp)), y, obj_slope)))))) || (grounded && (place_meeting((x + hsp), (y - 32), obj_solid) && ((!place_meeting((x + hsp), y, obj_destructibles)) && ((!place_meeting((x + hsp), y, obj_metalblock)) && place_meeting(x, (y + 1), obj_slope))))))
 	{
 	    wallspeed = 10
-	    state = 17
+	    state = states.climbwall
 	}
 	if ((scr_solid((x + 1), y) && (xscale == 1)) && ((!scr_slope()) && ((!place_meeting((x + sign(hsp)), y, obj_slope)) && ((!place_meeting((x + sign(hsp)), y, obj_metalblock)) && ((!place_meeting((x + sign(hsp)), y, obj_destructibles)) && (grounded || (fightball == 1)))))))
 	{
@@ -151,7 +151,7 @@ function scr_player_mach3() {
 	            }
 	        }
 	        flash = 0
-	        state = 72
+	        state = states.bump
 	        hsp = -2.5
 	        vsp = -3
 	        mach2 = 0
@@ -184,7 +184,7 @@ function scr_player_mach3() {
 	                }
 	            }
 	            flash = 0
-	            state = 72
+	            state = states.bump
 	            hsp = -2.5
 	            vsp = -3
 	            mach2 = 0
@@ -220,7 +220,7 @@ function scr_player_mach3() {
 	            }
 	        }
 	        flash = 0
-	        state = 72
+	        state = states.bump
 	        hsp = 2.5
 	        vsp = -3
 	        mach2 = 0
@@ -253,7 +253,7 @@ function scr_player_mach3() {
 	                }
 	            }
 	            flash = 0
-	            state = 72
+	            state = states.bump
 	            hsp = -2.5
 	            vsp = -3
 	            mach2 = 0
@@ -279,7 +279,7 @@ function scr_player_mach3() {
 	    tauntstoredmovespeed = movespeed
 	    tauntstoredsprite = sprite_index
 	    tauntstoredstate = state
-	    state = 51
+	    state = states.backbreaker
 	    image_index = random_range(0, (sprite_get_number(spr_taunt) - 1))
 	    sprite_index = spr_taunt
 	    instance_create(x, y, obj_taunteffect)

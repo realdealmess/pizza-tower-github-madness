@@ -15,7 +15,7 @@ function scr_player_cheeseball() {
 	    image_index = 0
 	    obj_player.image_index = 0
 	    obj_player.flash = 1
-	    state = 72
+	    state = states.bump
 	}
 	sprite_index = spr_player_cheeseball
 	if key_jump

@@ -11,25 +11,25 @@ function scr_player_barrelmach1() {
 	    if (mach2 >= 35)
 	    {
 	        image_index = 0
-	        state = 85
+	        state = states.barrel_slip_n_slide
 	        flash = 1
 	    }
 	}
 	if (!grounded)
 	{
-	    state = 83
+	    state = states.barrelfall
 	    image_index = 0
 	    hsp = 0
 	}
 	if ((!key_attack) && grounded)
 	{
-	    state = 84
+	    state = states.barrelnormal
 	    image_index = 0
 	    mach2 = 0
 	}
 	if (scr_solid((x + 1), y) && (image_xscale == 1))
 	{
-	    state = 83
+	    state = states.barrelfall
 	    hsp = -2
 	    vsp = -2
 	    mach2 = 0
@@ -38,7 +38,7 @@ function scr_player_barrelmach1() {
 	}
 	if (scr_solid((x - 1), y) && (image_xscale == -1))
 	{
-	    state = 83
+	    state = states.barrelfall
 	    hsp = 2
 	    vsp = -2
 	    mach2 = 0

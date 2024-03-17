@@ -18,7 +18,7 @@ function scr_enemy_walk() {
 	            image_xscale *= -1
 	            image_index = 0
 	            sprite_index = spr_forknight_turn
-	            state = 94
+	            state = enemy_states.idle
 	        }
 	        else
 	            image_xscale *= -1
@@ -35,14 +35,14 @@ function scr_enemy_walk() {
 	                vsp = -11
 	                image_index = 0
 	                image_xscale = (-sign((x - obj_player.x)))
-	                state = 96
+	                state = enemy_states.charge
 	            }
 	            else if (object_index == obj_forknight)
 	            {
 	                image_xscale *= -1
 	                image_index = 0
 	                sprite_index = spr_forknight_turn
-	                state = 94
+	                state = enemy_states.idle
 	            }
 	            else
 	                image_xscale *= -1

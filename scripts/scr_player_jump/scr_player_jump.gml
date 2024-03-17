@@ -52,7 +52,7 @@ function scr_player_jump() {
 	        vsp = -11
 	    else
 	        vsp = -13
-	    state = 58
+	    state = states.jump
 	    jumpAnim = 1
 	    jumpstop = 0
 	    image_index = 0
@@ -65,7 +65,7 @@ function scr_player_jump() {
 	    if key_attack
 	        landAnim = 0
 	    input_buffer_secondjump = 0
-	    state = 0
+	    state = states.normal
 	    jumpAnim = 1
 	    jumpstop = 0
 	    image_index = 0
@@ -113,7 +113,7 @@ function scr_player_jump() {
 	    if (shotgunAnim == 0)
 	    {
 	        image_index = 0
-	        state = 92
+	        state = states.freefallprep
 	        sprite_index = spr_bodyslamstart
 	        if (character == "P")
 	            vsp = -5
@@ -124,7 +124,7 @@ function scr_player_jump() {
 	    {
 	        scr_soundeffect(sfx_killingblow)
 	        image_index = 0
-	        state = 92
+	        state = states.freefallprep
 	        sprite_index = spr_shotgunjump1
 	        vsp = -5
 	        if (character == "P")
@@ -171,13 +171,13 @@ function scr_player_jump() {
 	    scr_soundeffect(sfx_groundpound)
 	    image_index = 0
 	    sprite_index = spr_bodyslamland
-	    state = 77
+	    state = states.freefall_land
 	}
 	if (key_slap2 && ((suplexmove == 0) && (!((shotgunAnim == 1) && key_up))))
 	{
 	    suplexmove = 1
 	    suplexdashsnd = audio_play_sound(sfx_suplexdash, 1, false)
-	    state = 22
+	    state = states.handstandjump
 	    image_index = 0
 	    sprite_index = spr_suplexdashjumpstart
 	    vsp = -4
@@ -189,7 +189,7 @@ function scr_player_jump() {
 	if (key_slap2 && ((shotgunAnim == 1) && key_up))
 	{
 	    scr_soundeffect(sfx_killingblow)
-	    state = 38
+	    state = states.shotgun
 	    with (instance_create(x, y, obj_pistoleffect))
 	        image_xscale = other.image_xscale
 	    image_index = 0
@@ -210,7 +210,7 @@ function scr_player_jump() {
 	    movespeed = 6
 	    sprite_index = spr_mach1
 	    jumpAnim = 1
-	    state = 69
+	    state = states.mach1
 	    image_index = 0
 	}
 	if key_taunt2
@@ -220,7 +220,7 @@ function scr_player_jump() {
 	    tauntstoredmovespeed = movespeed
 	    tauntstoredsprite = sprite_index
 	    tauntstoredstate = state
-	    state = 51
+	    state = states.backbreaker
 	    image_index = random_range(0, (sprite_get_number(spr_taunt) - 1))
 	    sprite_index = spr_taunt
 	    instance_create(x, y, obj_taunteffect)

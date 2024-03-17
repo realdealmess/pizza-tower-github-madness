@@ -40,7 +40,7 @@ function scr_enemy_charge() {
 	    hsp = (image_xscale * movespeed)
 	    if place_meeting((x + hsp), y, obj_solid)
 	    {
-	        state = 106
+	        state = enemy_states.stun
 	        stunned = 100
 	    }
 	}
@@ -49,7 +49,7 @@ function scr_enemy_charge() {
 	    hsp = (image_xscale * (movespeed * 2))
 	    image_speed = 0.35
 	    if (grounded && (vsp > 0))
-	        state = 102
+	        state = enemy_states.walk
 	    if (((scr_solid((x + 1), y) && (image_xscale == 1)) || (scr_solid((x - 1), y) && (image_xscale == -1))) && (!place_meeting((x + sign(hsp)), y, obj_slope)))
 	        image_xscale *= -1
 	    if ((!(grounded || (grounded && (!place_meeting(x, y, obj_platform))))) && (hsp < 0))

@@ -16,7 +16,7 @@ function scr_playerreset() {
 	obj_player1.spotlight = 1
 	obj_player2.x = -1000
 	obj_player2.y = 500
-	obj_player2.state = 8
+	obj_player2.state = states.titlescreen
 	if instance_exists(obj_coopflag)
 	    instance_destroy(obj_coopflag)
 	if instance_exists(obj_cooppointer)
@@ -35,7 +35,7 @@ function scr_playerreset() {
 	    instance_destroy(obj_timesup)
 	global.seconds = 59
 	global.minutes = 1
-	obj_player1.state = 0
+	obj_player1.state = states.normal
 	obj_player1.visible = true
 	ds_list_clear(global.saveroom)
 	ds_list_clear(global.baddieroom)

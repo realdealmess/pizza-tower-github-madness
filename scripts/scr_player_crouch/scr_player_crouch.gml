@@ -12,14 +12,14 @@ function scr_player_crouch() {
 	if ((!grounded) && (!key_jump))
 	{
 	    jumpAnim = 0
-	    state = 67
+	    state = states.crouchjump
 	    movespeed = 4
 	    crouchAnim = 1
 	    image_index = 0
 	}
 	if (grounded && ((!key_down) && ((!scr_solid(x, (y - 16))) && ((!scr_solid(x, (y - 32))) && (!key_jump)))))
 	{
-	    state = 0
+	    state = states.normal
 	    movespeed = 0
 	    crouchAnim = 1
 	    jumpAnim = 1
@@ -64,7 +64,7 @@ function scr_player_crouch() {
 	{
 	    scr_soundeffect(sfx_jump)
 	    vsp = -8
-	    state = 67
+	    state = states.crouchjump
 	    movespeed = 4
 	    image_index = 0
 	    crouchAnim = 1
@@ -75,7 +75,7 @@ function scr_player_crouch() {
 	    movespeed = 14
 	    with (instance_place((x + xscale), (y + 1), obj_slope))
 	        other.xscale = (-sign(image_xscale))
-	    state = 2
+	    state = states.tumble
 	    sprite_index = spr_tumblestart
 	}
 	image_speed = 0.45

@@ -35,11 +35,11 @@ if (scr_solid(x, y) && (hooked == 0))
     hsp = 0
     vsp = 0
     hooked = 1
-    obj_player.state = 9
+    obj_player.state = states.noise_hookshot
 }
 if (((sprite_index == spr_hookshot_side) || (sprite_index == spr_hookshot_top)) && (image_number == -1))
     image_speed = 0
-if (((hooked == 1) && (obj_player.state != 9)) || (obj_player.state != 9))
+if (((hooked == 1) && (obj_player.state != states.noise_hookshot)))
     instance_destroy()
 var _temp_local_var_7 = abs(vsp)
 if (abs(vsp) <= 0)

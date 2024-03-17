@@ -1,6 +1,6 @@
 with (obj_player)
 {
-    if ((state == 7) && (sprite_index == spr_player_firemouth))
+    if ((state == states.firemouth) && (sprite_index == spr_player_firemouth))
     {
         image_index = 0
         sprite_index = spr_player_firemouthend

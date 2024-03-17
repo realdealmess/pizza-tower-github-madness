@@ -1,59 +1,59 @@
 switch state
 {
-    case 94:
+    case enemy_states.idle:
         scr_enemy_idle()
         break
-    case 96:
+    case enemy_states.charge:
         scr_enemy_charge()
         break
-    case 98:
+    case enemy_states.turn:
         scr_enemy_turn()
         break
-    case 102:
+    case enemy_states.walk:
         scr_enemy_walk()
         break
-    case 104:
+    case enemy_states.land:
         scr_enemy_land()
         break
-    case 105:
+    case enemy_states.hit:
         scr_enemy_hit()
         break
-    case 106:
+    case enemy_states.stun:
         scr_enemy_stun()
         break
-    case 97:
+    case enemy_states.pizzagoblin_throw:
         scr_pizzagoblin_throw()
         break
-    case 109:
+    case enemy_states.grabbed:
         scr_enemy_grabbed()
         break
 }
 
-if ((state == 106) && ((stunned > 100) && (birdcreated == 0)))
+if ((state == enemy_states.stun) && ((stunned > 100) && (birdcreated == 0)))
 {
     birdcreated = 1
     with (instance_create(x, y, obj_enemybird))
         ID = other.id
 }
-if (state != 106)
+if (state != enemy_states.stun)
     birdcreated = 0
-if ((state == 102) && ((y > ystart) && (!scr_solid(x, (y - 1)))))
+if ((state == enemy_states.walk) && ((y > ystart) && (!scr_solid(x, (y - 1)))))
     y--
-if ((state == 102) && ((y < ystart) && (!scr_solid(x, (y + 1)))))
+if ((state == enemy_states.walk) && ((y < ystart) && (!scr_solid(x, (y + 1)))))
     y++
-if (state == 106)
+if (state == enemy_states.stun)
     grav = 0.5
 else
     grav = 0
 if ((flash == 1) && (alarm[2] <= 0))
     alarm[2] = (0.15 * room_speed)
-if (state != 109)
+if (state != enemy_states.grabbed)
     depth = 0
 if (((obj_player1.x > (x - 600)) && (obj_player1.x < (x + 600))) && ((y <= (obj_player1.y + 60)) && (y >= (obj_player1.y - 60))))
 {
-    if ((state != 94) && (obj_player1.state == 91))
+    if ((state != enemy_states.idle) && (obj_player1.state == states.mach3))
     {
-        state = 94
+        state = enemy_states.idle
         sprite_index = scaredspr
         if (x != obj_player1.x)
             image_xscale = (-sign((x - obj_player1.x)))
@@ -63,9 +63,9 @@ if instance_exists(obj_player2)
 {
     if (((obj_player2.x > (x - 600)) && (obj_player2.x < (x + 600))) && ((y <= (obj_player2.y + 60)) && (y >= (obj_player2.y - 60))))
     {
-        if ((state != 94) && (obj_player2.state == 91))
+        if ((state != enemy_states.idle) && (obj_player2.state == states.mach3))
         {
-            state = 94
+            state = enemy_states.idle
             sprite_index = scaredspr
             if (x != obj_player2.x)
                 image_xscale = (-sign((x - obj_player2.x)))
@@ -74,7 +74,7 @@ if instance_exists(obj_player2)
 }
 if ((sprite_index == spr_ancho_chargestart) && (floor(image_index) == (image_number - 1)))
 {
-    if ((hitboxcreate == 0) && (state == 96))
+    if ((hitboxcreate == 0) && (state == enemy_states.charge))
     {
         hitboxcreate = 1
         with (instance_create(x, y, obj_forkhitbox))
@@ -83,38 +83,38 @@ if ((sprite_index == spr_ancho_chargestart) && (floor(image_index) == (image_num
     sprite_index = spr_ancho_charge
     movespeed = 10
 }
-if ((x != obj_player1.x) && ((state != 96) && (y == ystart)))
+if ((x != obj_player1.x) && ((state != enemy_states.charge) && (y == ystart)))
 {
     if (((obj_player1.x > (x - 200)) && (obj_player1.x < (x + 200))) && ((y <= (obj_player1.y + 50)) && (y >= (obj_player1.y - 50))))
     {
-        if (state == 102)
+        if (state == enemy_states.walk)
         {
             image_index = 0
             image_xscale = (-sign((x - obj_player.x)))
-            state = 96
+            state = enemy_states.charge
             sprite_index = spr_ancho_chargestart
         }
     }
 }
 if instance_exists(obj_player2)
 {
-    if ((x != obj_player2.x) && ((state != 96) && (y == ystart)))
+    if ((x != obj_player2.x) && ((state != enemy_states.charge) && (y == ystart)))
     {
         if (((obj_player2.x > (x - 200)) && (obj_player2.x < (x + 200))) && ((y <= (obj_player2.y + 50)) && (y >= (obj_player2.y - 50))))
         {
-            if (state == 102)
+            if (state == enemy_states.walk)
             {
                 image_index = 0
                 image_xscale = (-sign((x - obj_player.x)))
-                state = 96
+                state = enemy_states.charge
                 sprite_index = spr_ancho_chargestart
             }
         }
     }
 }
-if ((state == 106) || (state == 102))
+if ((state == enemy_states.stun) || (state == enemy_states.walk))
     movespeed = 0
-if (state != 106)
+if (state != enemy_states.stun)
     thrown = 0
 if (boundbox == 0)
 {

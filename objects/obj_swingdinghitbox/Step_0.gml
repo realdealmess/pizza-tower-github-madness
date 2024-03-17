@@ -2,7 +2,7 @@ x = playerid.x
 y = playerid.y
 with (playerid)
 {
-    if (state != 46)
+    if (state != states.grab)
         instance_destroy(other.id)
 }
 

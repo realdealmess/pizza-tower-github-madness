@@ -38,7 +38,7 @@ function scr_pizzagoblin_throw() {
 	else if place_meeting(x, (y + 1), obj_railh2)
 	    hsp = 5
 	if (floor(image_index) == (image_number - 1))
-	    state = 102
+	    state = enemy_states.walk
 	if ((bombreset == 0) && (floor(image_index) == global.throw_frame[object_index]))
 	{
 	    bombreset = global.reset_timer[object_index]

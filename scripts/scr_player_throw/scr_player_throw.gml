@@ -95,7 +95,7 @@ function scr_player_throw() {
 	crouchAnim = 1
 	sprite_index = spr_player_throw
 	if ((floor(image_index) == (image_number - 1)) || (move == (-xscale)))
-	    state = 0
+	    state = states.normal
 	image_speed = 0.35
 
 

@@ -3,7 +3,7 @@ function scr_player_finishingblow() {
 	if (movespeed > 0)
 	    movespeed -= 0.5
 	if (floor(image_index) == (image_number - 1))
-	    state = 0
+	    state = states.normal
 	if ((floor(image_index) == 6) && (!instance_exists(obj_swordhitbox)))
 	{
 	    scr_soundeffect(sfx_punch)

@@ -1,14 +1,14 @@
-if ((state == 106) && ((hp == 0) && ((stunned > 40) && (slapped == 0))))
+if ((state == enemy_states.stun) && ((hp == 0) && ((stunned > 40) && (slapped == 0))))
 {
     slapped = 1
     instance_create((x + (obj_player.xscale * 40)), y, obj_punchdust)
-    state = 109
-    obj_player.state = 46
+    state = enemy_states.grabbed
+    obj_player.state = states.grab
     instance_destroy(other.id)
 }
-if ((hp == 0) && ((!((state == 106) && (stunned > 40))) && ((state != 109) && (slapped == 0))))
+if ((hp == 0) && ((!((state == enemy_states.stun) && (stunned > 40))) && ((state != enemy_states.grabbed) && (slapped == 0))))
 {
-    scr_sound(sound_slaphit)
+    scr_sound(sfx_bumpwall)
     instance_create(x, y, obj_spikehurteffect)
     other.image_xscale = image_xscale
     slapped = 1
@@ -19,9 +19,9 @@ if ((hp == 0) && ((!((state == 106) && (stunned > 40))) && ((state != 109) && (s
         image_xscale = (-sign((x - other.x)))
     vsp = -5
     hsp = ((-image_xscale) * 3)
-    state = 106
+    state = enemy_states.stun
 }
-else if ((state != 109) && (slapped == 0))
+else if ((state != enemy_states.grabbed) && (slapped == 0))
 {
     scr_sound(sound_slaphit)
     if (hp > 0)
@@ -31,7 +31,7 @@ else if ((state != 109) && (slapped == 0))
     with (instance_create(x, y, obj_spikehurteffect))
         other.image_xscale = image_xscale
     slapped = 1
-    state = 106
+    state = enemy_states.stun
     stunned = 40
     if (other.x != x)
         image_xscale = (-sign((x - other.x)))

@@ -1,6 +1,6 @@
 function scr_player_grabbing() {
 	if (!place_meeting(x, y, obj_baddie))
-	    state = 0
+	    state = states.normal
 	move = (key_left + key_right)
 	hsp = (move * movespeed)
 	if ((!key_jump2) && ((jumpstop == 0) && ((vsp < 0.5) && (stompAnim == 0))))
@@ -20,19 +20,19 @@ function scr_player_grabbing() {
 	{
 	    movespeed = 0
 	    image_index = 0
-	    state = 46
+	    state = states.grab
 	}
 	if (key_attack && (!grounded))
 	{
 	    movespeed = 0
 	    image_index = 0
-	    state = 41
+	    state = states.throwing
 	}
 	if (key_jump && (!grounded))
 	{
 	    movespeed = 0
 	    vsp = -11
-	    state = 42
+	    state = states.slam
 	    image_index = 0
 	    image_speed = 0.35
 	}

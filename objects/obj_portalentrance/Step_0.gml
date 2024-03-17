@@ -1,4 +1,4 @@
-if (obj_player.state == 19)
+if (obj_player.state == states.portal)
 {
     obj_camera.x = x
     obj_camera.y = y

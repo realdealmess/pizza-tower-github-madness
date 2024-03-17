@@ -13,7 +13,7 @@ else if instance_exists(baddieID)
     instance_create(baddieID.x, baddieID.y, obj_slapstar)
     instance_create(baddieID.x, baddieID.y, obj_baddiegibs)
     baddieID.flash = 1
-    baddieID.state = 106
+    baddieID.state = enemy_states.stun
     if (baddieID.stunned < 100)
         baddieID.stunned = 100
     instance_create(x, y, obj_bumpeffect)

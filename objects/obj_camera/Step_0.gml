@@ -29,12 +29,12 @@ if ((shoving == 1) && ((image_index >= 3) && (bang == 0)))
     {
         if ((obj_player1.spotlight == 0) && (obj_player1.character == "P"))
         {
-            sprite = 960
+            sprite = spr_pepinoHUDscream
             hsp = random_range(-1, -5)
         }
         else
         {
-            sprite = 888
+            sprite = spr_noiseHUD_panic
             hsp = random_range(1, 5)
         }
     }
@@ -76,11 +76,11 @@ if (shake_mag > 0)
     if (shake_mag < 0)
         shake_mag = 0
 }
-if (instance_exists(player) && ((player.state != 36) && (player.state != 55)))
+if (instance_exists(player) && ((player.state != states.timesup) && (player.state != states.gameover)))
 {
     var target = player
     var coopdistance = (distance_to_object(obj_player2) / 2)
-    if ((player.state == 91) || (player.state == 37))
+    if ((player.state == states.mach3) || (player.state == states.machroll))
     {
         if (chargecamera > (player.xscale * 100))
             chargecamera -= 2

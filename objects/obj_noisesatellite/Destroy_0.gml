@@ -6,15 +6,15 @@ instance_destroy(obj_wave)
 obj_tv.message = "VICTORY!!!"
 obj_tv.showtext = 1
 obj_tv.alarm[0] = 260
-obj_tv.tvsprite = 928
+obj_tv.tvsprite = spr_tvclap
 obj_tv.image_speed = 0.1
 obj_player.image_index = 0
 obj_player.x = 608
 obj_player.hsp = 0
 obj_player.y = 498
 obj_player.sprite_index = spr_player_levelcomplete
-obj_player.state = 54
-instance_create(1230, 562, obj_noise)
+obj_player.state = states.bossintro
+instance_create(1230, 562, obj_noisey)
 scr_sleep(50)
 if (reset == 0)
 {

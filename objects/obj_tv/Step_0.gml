@@ -56,7 +56,7 @@ if (showtext == 0)
     if (yi < 600)
         yi += 1
 }
-if (!(obj_player.state == 24 && obj_player.state == 25 && obj_player.state == 18))
+if (!(obj_player.state == states.knightpep && obj_player.state == states.knightpepattack && obj_player.state == states.knightpepslopes))
     once = 0
 if (obj_player.y < 200 && obj_player.x > (room_width - 200))
     alpha = 0.5
@@ -105,7 +105,7 @@ else if (obj_player.sprite_index == spr_player_levelcomplete)
     tvsprite = spr_tvclap
     once = 1
 }
-else if (obj_player.state == 73)
+else if (obj_player.state == states.hurt)
 {
     image_speed = 0.1
     showtext = 1
@@ -116,7 +116,7 @@ else if (obj_player.state == 73)
     tvsprite = spr_tvhurt
     once = 1
 }
-else if (obj_player.state == 36 || obj_player.state == 4)
+else if (obj_player.state == states.timesup || obj_player.state == states.ejected)
 {
     alarm[0] = 50
     image_speed = 0.1
@@ -141,7 +141,7 @@ else if (global.hurtcounter >= global.hurtmilestone && obj_player.character == "
         tvsprite = choose(spr_tvtalking1, spr_tvtalking2, spr_tvtalking3, spr_tvtalking4)
     global.hurtmilestone += 3
 }
-else if (obj_player.state == 44)
+else if (obj_player.state == states.skateboard)
 {
     showtext = 1
     message = "SWEET DUDE!!"
@@ -193,7 +193,7 @@ else if (room == Realtitlescreen)
         message = ""
     }
 }
-if (obj_player.state == 56)
+if (obj_player.state == states.keyget)
 {
     showtext = 1
     message = "GOT THE KEY!"

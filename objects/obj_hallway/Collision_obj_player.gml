@@ -19,29 +19,29 @@ with (other.id)
             }
             other.visited = 1
             image_index = 0
-            if (state == 71)
-                state = 0
+            if (state == states.machslide)
+                state = states.normal
             scr_soundeffect(sfx_door)
             instance_create(x, y, obj_fadeout)
         }
     }
-    else if ((object_index == obj_player2) && (state != 109))
+    else if ((object_index == obj_player2) && (state != enemy_states.grabbed))
     {
         alarm[5] = 2
         alarm[7] = 60
         hurted = 1
         x = obj_player1.x
         y = obj_player1.y
-        state = 0
+        state = states.normal
     }
-    else if ((object_index == obj_player1) && (state != 109))
+    else if ((object_index == obj_player1) && (state != enemy_states.grabbed))
     {
         alarm[5] = 2
         alarm[7] = 60
         hurted = 1
         x = obj_player2.x
         y = obj_player2.y
-        state = 0
+        state = states.normal
     }
 }
 

@@ -3,7 +3,7 @@ if (grabbed == 1)
     image_xscale = (-obj_player.xscale)
     grav = 0
     obj_player.baddiegrabbedID = id
-    if ((obj_player.state == 28) || ((obj_player.state == 46) || ((obj_player.state == 41) || ((obj_player.state == 42) || (obj_player.state == 10)))))
+    if ((obj_player.state == states.grabbing) || ((obj_player.state == states.grab) || ((obj_player.state == states.throwing) || ((obj_player.state == states.slam) || (obj_player.state == states.tacklecharge)))))
     {
         grounded = 0
         x = obj_player.x
@@ -23,7 +23,7 @@ if (grabbed == 1)
     {
         scr_getinput()
         move = (key_left2 + key_right2)
-        if (!((state == 46) || ((state == 28) || ((state == 41) || ((state == 42) || ((state == 10) || ((state == 47) || ((state == 43) || ((state == 48) || ((state == 49) || (state == 50)))))))))))
+        if (!((state == states.grab) || ((state == states.grabbing) || ((state == states.throwing) || ((state == states.slam) || ((state == states.tacklecharge) || ((state == states.punch) || ((state == states.superslam) || ((state == states.backkick) || ((state == states.uppunch) || (state == states.shoulder)))))))))))
         {
             other.x = x
             other.y = y
@@ -31,7 +31,7 @@ if (grabbed == 1)
         }
     }
     hsp = 0
-    if (obj_player.state == 47)
+    if (obj_player.state == states.punch)
     {
         instance_create((x + (obj_player.xscale * 30)), y, obj_bumpeffect)
         grabbed = 0
@@ -50,7 +50,7 @@ if (grabbed == 1)
             shake_mag_acc = (3 / room_speed)
         }
     }
-    if (obj_player.state == 50)
+    if (obj_player.state == states.shoulder)
     {
         grav = 0.5
         instance_create(x, (y + 20), obj_bumpeffect)
@@ -78,7 +78,7 @@ if (grabbed == 1)
             shake_mag_acc = (3 / room_speed)
         }
     }
-    if (obj_player.state == 41)
+    if (obj_player.state == states.throwing)
     {
         grav = 0.5
         grabbed = 0
@@ -88,7 +88,7 @@ if (grabbed == 1)
         hsp = ((-image_xscale) * 10)
         vsp = -10
     }
-    if (obj_player.state == 49)
+    if (obj_player.state == states.uppunch)
     {
         instance_create((x + ((-obj_player.xscale) * 15)), (y - 50), obj_bumpeffect)
         grav = 0.5
@@ -107,12 +107,12 @@ if (grabbed == 1)
             shake_mag_acc = (3 / room_speed)
         }
     }
-    if (obj_player.state == 10)
+    if (obj_player.state == states.tacklecharge)
     {
         x = (obj_player.x + (obj_player.xscale * 15))
         y = obj_player.y
     }
-    if (obj_player.state == 43)
+    if (obj_player.state == states.superslam)
     {
         if (obj_player.character == "P")
         {

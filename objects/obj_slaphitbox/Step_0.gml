@@ -1,6 +1,6 @@
 image_xscale = playerid.xscale
 x = playerid.x
 y = playerid.y
-if (((playerid.image_index > 3) || (playerid.state != 12)) && ((playerid.state != 22) && (playerid.state != 9)))
+if (((playerid.image_index > 3) || (playerid.state != states.slap)) && ((playerid.state != states.handstandjump) && (playerid.state != states.noise_hookshot)))
     instance_destroy()
 
